@@ -222,7 +222,6 @@ def change_equip():
         try:
             choice = int(input('>'))
         except:
-            line_operations.cls()
             input('Please input a number!')
 
         if choice not in [1, 2, 3, 4, 5, 6]:
