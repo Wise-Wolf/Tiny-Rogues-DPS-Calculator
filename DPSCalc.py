@@ -229,7 +229,7 @@ def change_equip():
         else:
             while True:
                 line_operations.cls()
-                name = input('Please input the name of the new item >')
+                name = input('Please input the name of the new item >').lower()
 
                 if name not in allitems:
                     input('Item of this name does not exist!')
@@ -254,7 +254,7 @@ def change_equip():
                                 player.weapon.uplevel = choice
 
                                 while True:
-                                    name = input('Input the weapon\'s modifier >')
+                                    name = input('Input the weapon\'s modifier >').lower()
                                     if name not in allitems:
                                         input('Modifier of this name does not exist!')
                                         line_operations.delete_last_line()
