@@ -64,6 +64,8 @@ class Klass:
         self.weapon = weapon
 
 class Weapon:
+    slot = 'Weapon'
+
     def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, dottickrate, types = ['Unconditional'], stats = {}):
         self.name = name
         self.uptier = uptier
@@ -205,89 +207,151 @@ def initial_setup():
 def change_equip():
     choice = 0
     name = ''
-    line_operations.cls()
 
     while True:
-        print('Which part of your equipment do you want to change?')
+        line_operations.cls()
+
+        print('Which item do you want to swap?')
         print('1. Weapon')
         print('2. Offhand')
         print('3. Helmet')
         print('4. Body')
         print('5. Boots')
         print('6. Accessory')
-        choice = int(input('>'))
-        
-        match choice:
-            case 1:
-                name = input('Input the name of the new item >').lower()
-                player.weapon = allitems[name]
-                choice = int(input('Input the weapon\'s current upgrade level >'))
-                player.weapon.uplevel = choice
-                name = input('Input the weapon\'s modifier >').lower()
-                player.modifier = allitems[name]
-                return
-            case 2:
-                name = input('Input the name of the new item >').lower()
-                player.offhand = allitems[name]
-                return
-            case 3:
-                name = input('Input the name of the new item >').lower()
-                player.helmet = allitems[name]
-                return
-            case 4:
-                name = input('Input the name of the new item >').lower()
-                player.body = allitems[name]
-                return
-            case 5:
-                name = input('Input the name of the new item >').lower()
-                player.boots = allitems[name]
-                return
-            case 6:
-                name = input('Input the name of the new item >').lower()
-                player.accessory = allitems[name]
-                return
-            case _:
+
+        try:
+            choice = int(input('>'))
+        except:
+            line_operations.cls()
+            input('Please input a number!')
+
+        if choice not in [1, 2, 3, 4, 5, 6]:
+                input('Please input a correct option!')
+        else:
+            while True:
                 line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
+                name = input('Please input the name of the new item >')
+
+                if name not in allitems:
+                    input('Item of this name does not exist!')
+                else:
+                    match choice:
+                        case 1:
+                            if allitems[name].slot != 'Weapon' and allitems[name].slot != 'Any':
+                                print('That\'s not a weapon!')
+                                input('Returning to menu...')
+                            else:
+                                player.weapon = allitems[name]
+
+                                while True:
+                                    try:
+                                        choice = int(input('Input the weapon\'s current upgrade level >'))
+                                        break
+                                    except:
+                                        input('Please input a number!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+
+                                player.weapon.uplevel = choice
+
+                                while True:
+                                    name = input('Input the weapon\'s modifier >')
+                                    if name not in allitems:
+                                        input('Modifier of this name does not exist!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+                                    elif allitems[name].slot != 'Modifier' and allitems[name].slot != 'Any':
+                                        input('That\'s not a modifier!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+                                    else:
+                                        player.modifier = allitems[name]
+                                        break
+
+                            return
+                        case 2:
+                            if allitems[name].slot != 'Offhand' and allitems[name].slot != 'Any':
+                                print('That\'s not an offhand!')
+                                input('Returning to menu...')
+                            else:
+                                player.offhand = allitems[name]
+                            return
+                        case 3:
+                            if allitems[name].slot != 'Helmet' and allitems[name].slot != 'Any':
+                                print('That\'s not a helmet!')
+                                input('Returning to menu...')
+                            else:
+                                player.helmet = allitems[name]
+                            return
+                        case 4:
+                            if allitems[name].slot != 'Body' and allitems[name].slot != 'Any':
+                                print('That\'s not a body!')
+                                input('Returning to menu...')
+                            else:
+                                player.body = allitems[name]
+                            return
+                        case 5:
+                            if allitems[name].slot != 'Boots' and allitems[name].slot != 'Any':
+                                print('That\'s not boots!')
+                                input('Returning to menu...')
+                            else:
+                                player.boots = allitems[name]
+                            return
+                        case 6:
+                            if allitems[name].slot != 'Accessory' and allitems[name].slot != 'Any':
+                                print('That\'s not an accessory!')
+                                input('Returning to menu...')
+                            else:
+                                player.accessory = allitems[name]
+                            return
 
 # Let the user add or change a Trait
 def change_trait():
     choice = 0
     name = ''
-    line_operations.cls()
 
     while True:
-        print('Which trait slot do you want to modify?')
-        choice = int(input('1-6 >'))
+        line_operations.cls()
+        name = input('Input the trait\'s name >').lower()
+        if name not in allitems:
+            input('Trait of this name does not exist!')
+        elif allitems[name].slot != 'Trait' and allitems[name].slot != 'Any':
+            print('That\'s not a trait!')
+            input('Returning to menu...')
+            return
+        else:
+            while True:
+                print('Which slot do you want to add this trait to?')
+                try:
+                    choice = int(input('1-6 >'))
+                except:
+                    input('Please input a number!')
+                    line_operations.delete_last_line()
 
-        match choice:
-            case 1:
-                name = input('Input the trait\'s name >').lower()
-                player.trait1 = allitems[name]
-                return
-            case 2:
-                name = input('Input the trait\'s name >').lower()
-                player.trait2 = allitems[name]
-                return
-            case 3:
-                name = input('Input the trait\'s name >').lower()
-                player.trait3 = allitems[name]
-                return
-            case 4:
-                name = input('Input the trait\'s name >').lower()
-                player.trait4 = allitems[name]
-                return
-            case 5:
-                name = input('Input the trait\'s name >').lower()
-                player.trait5 = allitems[name]
-                return
-            case 6:
-                name = input('Input the trait\'s name >').lower()
-                player.trait6 = allitems[name]
-                return
-            case _:
-                line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
+                match choice:
+                    case 1:
+                        player.trait1 = allitems[name]
+                        return
+                    case 2:
+                        player.trait2 = allitems[name]
+                        return
+                    case 3:
+                        player.trait3 = allitems[name]
+                        return
+                    case 4:
+                        player.trait4 = allitems[name]
+                        return
+                    case 5:
+                        player.trait5 = allitems[name]
+                        return
+                    case 6:
+                        player.trait6 = allitems[name]
+                        return
+                    case _:
+                        input('Please input a correct option!')
+                        line_operations.delete_last_line()
+                        line_operations.delete_last_line()
+                        line_operations.delete_last_line()
                 
 # Let the user change one of their stats
 def change_stats():
@@ -299,21 +363,33 @@ def change_stats():
         print('1. STR')
         print('2. DEX')
         print('3. INT')
-        choice = int(input('>'))
+        try:
+            choice = int(input('>'))
+        except:
+            input('Please input a number!')
 
         match choice:
             case 1:
-                player.strength = int(input('Input new STR value >'))
+                try:
+                    player.strength = int(input('Input new STR value >'))
+                except:
+                    input('Not a number! Returning to menu...')
                 return
             case 2:
-                player.dexterity = int(input('Input new DEX value >'))
+                try:
+                    player.dexterity = int(input('Input new DEX value >'))
+                except:
+                    input('Not a number! Returning to menu...')
                 return
             case 3:
-                player.intelligence = int(input('Input new INT value >'))
+                try:
+                    player.intelligence = int(input('Input new INT value >'))
+                except:
+                    input('Not a number! Returning to menu...')
                 return
             case _:
                 line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
+                print('Please input a correct option!')
 
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
@@ -332,6 +408,11 @@ def calculate_stats():
     # Add Weapon Stats
     for stat in player.weapon.stats:
         player.stats[stat] += player.weapon.stats[stat]
+
+    # Add Modifier Stats
+    if player.modifier.name != 'Empty':
+        for stat in player.modifier.stats:
+            player.stats[stat] += player.modifier.stats[stat]
 
     # Add Offhand Stats
     if player.offhand.name != 'Empty':
@@ -372,14 +453,6 @@ def calculate_stats():
             if condition in player.weapon.types:
                 for stat in player.accessory.stats:
                     player.stats[stat] += player.accessory.stats[stat]
-                break
-
-    # Add Modifier Stats
-    if player.modifier.name != 'Empty':
-        for condition in player.modifier.conditions:
-            if condition in player.weapon.types:
-                for stat in player.modifier.stats:
-                    player.stats[stat] += player.modifier.stats[stat]
                 break
 
     # Add Trait 1 Stats
