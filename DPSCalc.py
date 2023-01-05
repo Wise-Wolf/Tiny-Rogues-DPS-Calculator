@@ -17,6 +17,7 @@ class Player:
         self.body = klass.body
         self.boots = klass.boots
         self.accessory = klass.accessory
+        self.modifier = klass.empty
         self.trait1 = klass.empty
         self.trait2 = klass.empty
         self.trait3 = klass.empty
@@ -187,6 +188,8 @@ def initial_setup():
     trait2 = Item('Trait', 'Agility', ['Unconditional'], {'movespeedinc':0.1})
     # Create Lethality Trait
     trait3 = Item('Trait', 'Lethality', ['Unconditional'], {'critmulti':1.5})
+    # Create Crappy Modifier
+    modifier1 = Item('Modifier', 'Crappy', ['Unconditional'], {'incdmg':-0.1, 'attspd':-0.05})
     # Initialize Ranger's starting equipment manually
     rangerweapon = Weapon('Shortbow', 0.16, 0, 0.01, 0.03, 0.00, 150, 175, 2.75, 1, 1, 0, 0, 0, 0, 0, 0, ['Two-handed', 'Ranged', 'Physical', 'Bow', 'Unconditional'])
     rangerhelmet = Item('Helmet', 'Hunter Cap', ['Ranged'], {'attspd':0.1})
@@ -194,7 +197,8 @@ def initial_setup():
     # Create dictionaries of all items and all perks manually
     global allitems
     allitems = {'empty' : itemempty, 'motail' : weapon1, 'shtbow' : rangerweapon, 'hutcap' : rangerhelmet, 'racloak' : rangerbody, 'maiver': item1, \
-    'alacrity':trait1, 'agility':trait2, 'lethality':trait3}
+    'alacrity':trait1, 'agility':trait2, 'lethality':trait3, \
+    'crappy':modifier1}
     initialize_classes()
 
 # Let the user change a piece of their equipment
@@ -220,6 +224,7 @@ def change_equip():
                 choice = int(input('Input the weapon\'s current upgrade level >'))
                 player.weapon.uplevel = choice
                 name = input('Input the weapon\'s modifier >').lower()
+                player.modifier = allitems[name]
                 return
             case 2:
                 name = input('Input the name of the new item >').lower()
@@ -310,32 +315,6 @@ def change_stats():
                 line_operations.cls()
                 print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
 
-# Let the user change one of their stat proficiencies
-def change_proficiency():
-    choice = 0
-    line_operations.cls()
-
-    while True:
-        print('Which stat proficiency do you want to change?')
-        print('1. STR')
-        print('2. DEX')
-        print('3. INT')
-        choice = int(input('>'))
-
-        match choice:
-            case 1:
-                player.stats['strprof'] = float(input('Input new STR proficiency value >'))
-                return
-            case 2:
-                player.stats['dexprof'] = float(input('Input new DEX proficiency value >'))
-                return
-            case 3:
-                player.stats['intprof'] = float(input('Input new INT proficiency value >'))
-                return
-            case _:
-                line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
-
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
@@ -393,6 +372,14 @@ def calculate_stats():
             if condition in player.weapon.types:
                 for stat in player.accessory.stats:
                     player.stats[stat] += player.accessory.stats[stat]
+                break
+
+    # Add Modifier Stats
+    if player.modifier.name != 'Empty':
+        for condition in player.modifier.conditions:
+            if condition in player.weapon.types:
+                for stat in player.modifier.stats:
+                    player.stats[stat] += player.modifier.stats[stat]
                 break
 
     # Add Trait 1 Stats
@@ -539,7 +526,10 @@ def main_loop():
 
     while True:
         print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
-        print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
+        if player.modifier.name == 'Empty':
+            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
+        else:
+            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
         print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | ARMOR: {playarm} | STAMINA: {playsta}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{colors.bcolors.OKBLUE}{format(maindps, ".2f")}{colors.bcolors.ENDC}')
         print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 3: {player.trait3.name}":35s}\t{colors.bcolors.OKGREEN}DPS (DOT){colors.bcolors.ENDC}')
         print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{colors.bcolors.OKGREEN}{format(dotdps, ".2f")}{colors.bcolors.ENDC}')
@@ -547,24 +537,20 @@ def main_loop():
         print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{colors.bcolors.WARNING}{format(totaldps, ".2f")}{colors.bcolors.ENDC}\n')
 
         print('OPTIONS')
-        print('1. Change Equipment')
-        print('2. Change Stats')
+        print('1. Change Stats')
+        print('2. Change Equipment')
         print('3. Add or Change a Trait')
-        print('4. Change Stat Proficiency')
         choice = int(input('>'))
 
         match choice:
             case 1:
-                change_equip()
+                change_stats()
                 break
             case 2:
-                change_stats()
+                change_equip()
                 break
             case 3:
                 change_trait()
-                break
-            case 4:
-                change_proficiency()
                 break
             case _:
                 line_operations.cls()
