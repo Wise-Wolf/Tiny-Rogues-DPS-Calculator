@@ -1,37 +1,12 @@
 import line_operations, colors
 
 class Player:
-    gold = 0
-    hitpoints = 2
-    stamina = 2
-    armor = 0
-    movespeed = 7.5
-    movespeedinc = 0.0
-    attspd = 1.01
-    relspd = 1.0
-    refire = 0.0
-    critchance = 0.05
-    critdmg = 2.0
-    incdmg = 0.0
-    adddmg = 0
-    bonusdmg = 0
-    dotrateup = 0.0
-    dotup = 0.0
-    burnrateup = 0.0
-    burnup = 0.0
-    bleedrateup = 0.0
-    bleedup = 0.0
-    poisonrateup = 0.0
-    poisonup = 0.0
-    frostrateup = 0.0
-    frostup = 0.0
-    strprof = 0.0
-    dexprof = 0.0
-    intprof = 0.0
-    perks = {1 : '', 2 : '', 3 : '', 4 : '', 5 : '', 6 : ''}
+    stats = {'gold':0, 'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     # Inherit values from the chosen class
-    def __init__(self, klass):
+    def __init__(self, klass, inittrait):
         self.klass = klass.name
         self.strength = klass.strength
         self.dexterity = klass.dexterity
@@ -42,6 +17,12 @@ class Player:
         self.body = klass.body
         self.boots = klass.boots
         self.accessory = klass.accessory
+        self.trait1 = inittrait
+        self.trait2 = inittrait
+        self.trait3 = inittrait
+        self.trait4 = inittrait
+        self.trait5 = inittrait
+        self.trait6 = inittrait
 
 class Klass:
     def __init__(self, name, itemempty, strength, dexterity, intelligence, weapon, helmet = None, body = None, boots = None, offhand = None, accessory = None):
@@ -80,15 +61,10 @@ class Klass:
         self.weapon = weapon
 
 class Weapon:
-    def __init__(self, name, uptier, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, \
-    types = {'One-handed': 0, 'Two-handed' : 0, 'Melee' : 0, 'Ranged' : 0, 'Physical' : 0, 'Magical' : 0, 'Bow' : 0, 'Gun' : 0, 'Dagger' : 0, 'Sword': 0, 'Axe' : 0, 'Mace' : 0, 'Scythe' : 0,  'Flail' : 0, 'Wand' : 0, '' : 1}, \
-    capacity = 1, reload = 0.0, burndmg = 0.0, bleeddmg = 0.0, poisondmg = 0.0, frostdmg = 0.0, dottickrate = 0.0, \
-    attspd = 0.0, refire = 0.0, relspd = 0.0, incdmg = 0.0, adddmg = 0, bonusdmg = 0, critchance = 0.0, critdmg = 0.0, mspd = 0.0, \
-    dotup = 0.0, burnup = 0.0, bleedup = 0.0, poisonup = 0.0, frostup = 0.0, dotrateup = 0.0, burnrateup = 0.0, bleedrateup = 0.0, poisonrateup = 0.0, frostrateup = 0.0):
+    def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, dottickrate, types = ['Unconditional'], stats = {}):
         self.name = name
-        self.types = types
-        self.upgradetier = uptier
-        self.upgradelevel = 0
+        self.uptier = uptier
+        self.uplevel = uplevel
         self.strsc = strsc
         self.dexsc = dexsc
         self.intsc = intsc
@@ -97,60 +73,27 @@ class Weapon:
         self.aps = aps
         self.shots = shots
         self.capacity = capacity
-        self.reload = reload
-        self.frostdmg = frostdmg
+        self.relspd = relspd
         self.burndmg = burndmg
         self.bleeddmg = bleeddmg
         self.poisondmg = poisondmg
+        self.frostdmg = frostdmg
         self.dottickrate = dottickrate
-        self.dotrateup = dotrateup
-        self.burnrateup = burnrateup
-        self.bleedrateup = bleedrateup
-        self.poisonrateup = poisonrateup
-        self.frostrateup = frostrateup
-        self.dotup = dotup
-        self.burnup = burnup
-        self.bleedup = bleedup
-        self.poisonup = poisonup
-        self.frostup = frostup
-        self.attspd = attspd
-        self.relspd = relspd
-        self.refire = refire
-        self.incdmg = incdmg
-        self.adddmg = adddmg
-        self.bonusdmg = bonusdmg
-        self.critchance = critchance
-        self.critdmg = critdmg
-        self.mspd = mspd
+        self.types = types
+        self.stats = stats
 
 class Item:
-    def __init__(self, slot, name, condition = '', attspd = 0.0, refire = 0.0, relspd = 0.0, incdmg = 0.0, adddmg = 0, bonusdmg = 0, critchance = 0.0, critdmg = 0.0, mspd = 0.0, hp = 0, st = 0, ar = 0, \
-    dotup = 0.0, burnup = 0.0, bleedup = 0.0, poisonup = 0.0, frostup = 0.0, dotrateup = 0.0, burnrateup = 0.0, bleedrateup = 0.0, poisonrateup = 0.0, frostrateup = 0.0):
+    def __init__(self, slot, name, conditions = ['Unconditional'], stats = {}):
         self.slot = slot
         self.name = name
-        self.condition = condition
-        self.dotrateup = dotrateup
-        self.burnrateup = burnrateup
-        self.bleedrateup = bleedrateup
-        self.poisonrateup = poisonrateup
-        self.frostrateup = frostrateup
-        self.dotup = dotup
-        self.burnup = burnup
-        self.bleedup = bleedup
-        self.poisonup = poisonup
-        self.frostup = frostup
-        self.attspd = attspd
-        self.relspd = relspd
-        self.refire = refire
-        self.incdmg = incdmg
-        self.adddmg = adddmg
-        self.bonusdmg = bonusdmg
-        self.critchance = critchance
-        self.critdmg = critdmg
-        self.mspd = mspd
-        self.hp = hp
-        self.st = st
-        self.ar = ar
+        self.conditions = conditions
+        self.stats = stats
+
+class Trait:
+    def __init__(self, name, conditions = ['Unconditional'], stats = {}):
+        self.name = name
+        self.conditions = conditions
+        self.stats = stats
 
 # Create classes
 def initialize_classes():
@@ -232,25 +175,33 @@ def initialize_classes():
                 print(colors.bcolors.FAIL + 'Please input a correct number corresponding to the class you\'re playing!' + colors.bcolors.ENDC)
 
     global player
-    player = Player(klass)
+    player = Player(klass, alltraits['empty'])
 
 # Perform the initial setup. A goal here would be to load in items from a file into a dictionary from which they'd be easily accessible.
 def initial_setup():
     # Create an empty placeholder item
-    itemempty = Item('Empty', 'Empty')
+    itemempty = Item('Any', 'Empty')
+    # Create an empty placeholder trait
+    traitempty = Trait('Empty')
     # Create Magic Quiver
-    item1 = Item('Offhand', 'Magic Quiver', 'Bow', 0, 0.2)
+    item1 = Item('Offhand', 'Magic Quiver', ['Bow', 'Crossbow'], {'refire':0.2})
     # Create Molotov Cocktail
-    molotovtypes = {'One-handed': 1, 'Two-handed' : 0, 'Melee' : 0, 'Ranged' : 1, 'Physical' : 1, 'Magical' : 0, 'Bow' : 0, 'Gun' : 0, 'Dagger' : 0, 'Sword': 0, 'Axe' : 0, 'Mace' : 0, 'Scythe' : 0,  'Flail' : 0, 'Wand' : 0, '' : 1}
-    weapon1 = Weapon('Molotov Cocktail', 0.07, 0.00, 0.03, 0.01, 175, 200, 2, 1, molotovtypes, 1, 0, 0.6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.75)
+    weapon1 = Weapon('Molotov Cocktail', 0.13, 0, 0.0, 0.03, 0.01, 175, 200, 2, 1, 1, 0, 0.6, 0, 0, 0, 1, ['One-handed', 'Ranged', 'Physical', 'Unconditional'], {'burnup':0.75})
+    # Create Alacrity Trait
+    trait1 = Trait('Alacrity', ['Unconditional'], {'attspd':0.3})
+    # Create Agility Trait
+    trait2 = Trait('Agility', ['Unconditional'], {'movespeedinc':0.1})
+    # Create Lethality Trait
+    trait3 = Trait('Lethality', ['Unconditional'], {'critmulti':1.5})
     # Initialize Ranger's starting equipment manually
-    shortbowtypes = {'One-handed': 0, 'Two-handed' : 1, 'Melee' : 0, 'Ranged' : 1, 'Physical' : 1, 'Magical' : 0, 'Bow' : 1, 'Gun' : 0, 'Dagger' : 0, 'Sword': 0, 'Axe' : 0, 'Mace' : 0, 'Scythe' : 0,  'Flail' : 0, 'Wand' : 0, '' : 1}
-    rangerweapon = Weapon('Shortbow', 0.13, 0.01, 0.03, 0.00, 150, 175, 2.75, 1, shortbowtypes)
-    rangerhelmet = Item('Helmet', 'Hunter Cap', 'Ranged', 0.1)
+    rangerweapon = Weapon('Shortbow', 0.16, 0, 0.01, 0.03, 0.00, 150, 175, 2.75, 1, 1, 0, 0, 0, 0, 0, 0, ['Two-handed', 'Ranged', 'Physical', 'Bow', 'Unconditional'])
+    rangerhelmet = Item('Helmet', 'Hunter Cap', ['Ranged'], {'attspd':0.1})
     rangerbody = Item('Body', 'Ranger Cloak')
-    # Create a dictionary of all the items manually
+    # Create dictionaries of all items and all perks manually
     global allitems
     allitems = {'empty' : itemempty, 'motail' : weapon1, 'shtbow' : rangerweapon, 'hutcap' : rangerhelmet, 'racloak' : rangerbody, 'maiver': item1}
+    global alltraits
+    alltraits = {'empty' : traitempty, 'alacrity':trait1, 'agility':trait2, 'lethality':trait3}
     initialize_classes()
 
 # Let the user change a piece of their equipment
@@ -274,7 +225,7 @@ def change_equip():
                 name = input('Input the name of the new item >').lower()
                 player.weapon = allitems[name]
                 choice = int(input('Input the weapon\'s current upgrade level >'))
-                player.weapon.upgradelevel = choice
+                player.weapon.uplevel = choice
                 name = input('Input the weapon\'s modifier >').lower()
                 return
             case 2:
@@ -301,20 +252,40 @@ def change_equip():
                 line_operations.cls()
                 print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
 
-# Let the user add or change a perk
-def change_perk():
+# Let the user add or change a Trait
+def change_trait():
     choice = 0
     name = ''
     line_operations.cls()
 
     while True:
-        print('Which perk slot do you want to modify?')
+        print('Which trait slot do you want to modify?')
         choice = int(input('1-6 >'))
 
         match choice:
-            case 1 | 2 | 3 | 4 | 5 | 6:
-                name = input('Input the perk\'s name >')
-                player.perks[choice] = name
+            case 1:
+                name = input('Input the trait\'s name >').lower()
+                player.trait1 = alltraits[name]
+                return
+            case 2:
+                name = input('Input the trait\'s name >').lower()
+                player.trait2 = alltraits[name]
+                return
+            case 3:
+                name = input('Input the trait\'s name >').lower()
+                player.trait3 = alltraits[name]
+                return
+            case 4:
+                name = input('Input the trait\'s name >').lower()
+                player.trait4 = alltraits[name]
+                return
+            case 5:
+                name = input('Input the trait\'s name >').lower()
+                player.trait5 = alltraits[name]
+                return
+            case 6:
+                name = input('Input the trait\'s name >').lower()
+                player.trait6 = alltraits[name]
                 return
             case _:
                 line_operations.cls()
@@ -360,223 +331,146 @@ def change_proficiency():
 
         match choice:
             case 1:
-                player.strprof = float(input('Input new STR proficiency value >'))
+                player.stats['strprof'] = float(input('Input new STR proficiency value >'))
                 return
             case 2:
-                player.dexprof = float(input('Input new DEX proficiency value >'))
+                player.stats['dexprof'] = float(input('Input new DEX proficiency value >'))
                 return
             case 3:
-                player.intprof = float(input('Input new INT proficiency value >'))
+                player.stats['intprof'] = float(input('Input new INT proficiency value >'))
                 return
             case _:
                 line_operations.cls()
                 print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
 
-# Calculate player's stats based on their gear and perks
+# Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
-    player.hitpoints = 2
-    player.stamina = 2
-    player.armor = 0
-    player.movespeedinc = 0
-    player.movespeed = 7.5
-    player.attspd = 1.01
-    player.relspd = 1
-    player.refire = 0
-    player.critchance = 0.05
-    player.critdmg = 2
-    player.incdmg = 0
-    player.adddmg = 0
-    player.bonusdmg = 0
-    player.dotrateup = 0
-    player.burnrateup = 0
-    player.bleedrateup = 0
-    player.poisonrateup = 0
-    player.frostrateup = 0
-    player.dotup = 0
-    player.burnup = 0
-    player.bleedup = 0
-    player.poisonup = 0
-    player.frostup = 0
+    player.stats = {'gold':0, 'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     # Calculate stat bonuses
-    player.hitpoints += player.strength // 10
-    player.stamina += player.dexterity // 10
-    # player.mana += player.intelligence // 10
+    player.stats['hitpoints'] += player.strength // 10
+    player.stats['stamina'] += player.dexterity // 10
+    player.stats['mana'] += player.intelligence // 10
 
     # Calculate item modifiers
     # ------------------------
     # Add Weapon Stats
-    player.movespeedinc += player.weapon.mspd
-    player.attspd += player.weapon.attspd
-    player.relspd += player.weapon.relspd
-    player.refire += player.weapon.refire
-    player.critchance += player.weapon.critchance
-    player.critdmg += player.weapon.critdmg
-    player.incdmg += player.weapon.incdmg
-    player.adddmg += player.weapon.adddmg
-    player.bonusdmg += player.weapon.bonusdmg
-    player.dotrateup += player.weapon.dotrateup
-    player.burnrateup += player.weapon.burnrateup
-    player.bleedrateup += player.weapon.bleedrateup
-    player.poisonrateup += player.weapon.poisonrateup
-    player.frostrateup += player.weapon.frostrateup
-    player.dotup += player.weapon.dotup
-    player.burnup += player.weapon.burnup
-    player.bleedup += player.weapon.bleedup
-    player.poisonup += player.weapon.poisonup
-    player.frostup += player.weapon.frostup
+    for stat in player.weapon.stats:
+        player.stats[stat] += player.weapon.stats[stat]
 
     # Add Offhand Stats
     if player.offhand.name != 'Empty':
-        if player.weapon.types['Two-handed'] == 0 or player.offhand.condition == 'Bow':
-            if player.weapon.types[player.offhand.condition] == 1:
-                player.hitpoints += player.offhand.hp
-                player.stamina += player.offhand.st
-                player.armor += player.offhand.ar
-                player.movespeedinc += player.offhand.mspd
-                player.attspd += player.offhand.attspd
-                player.relspd += player.offhand.relspd
-                player.refire += player.offhand.refire
-                player.critchance += player.offhand.critchance
-                player.critdmg += player.offhand.critdmg
-                player.incdmg += player.offhand.incdmg
-                player.adddmg += player.offhand.adddmg
-                player.bonusdmg += player.offhand.bonusdmg
-                player.dotrateup += player.offhand.dotrateup
-                player.burnrateup += player.offhand.burnrateup
-                player.bleedrateup += player.offhand.bleedrateup
-                player.poisonrateup += player.offhand.poisonrateup
-                player.frostrateup += player.weapon.frostrateup
-                player.dotup += player.offhand.dotup
-                player.burnup += player.offhand.burnup
-                player.bleedup += player.offhand.bleedup
-                player.poisonup += player.offhand.poisonup
-                player.frostup += player.weapon.frostup
+        if 'Two-handed' not in player.weapon.types or 'Bow' in player.weapon.types:
+            for condition in player.offhand.conditions:
+                if condition in player.weapon.types:
+                    for stat in player.offhand.stats:
+                        player.stats[stat] += player.offhand.stats[stat]
+                    break
     
     # Add Helmet Stats
     if player.helmet.name != 'Empty':
-        if player.weapon.types[player.helmet.condition] == 1:
-            player.hitpoints += player.helmet.hp
-            player.stamina += player.helmet.st
-            player.armor += player.helmet.ar
-            player.movespeedinc += player.helmet.mspd
-            player.attspd += player.helmet.attspd
-            player.relspd += player.helmet.relspd
-            player.refire += player.helmet.refire
-            player.critchance += player.helmet.critchance
-            player.critdmg += player.helmet.critdmg
-            player.incdmg += player.helmet.incdmg
-            player.adddmg += player.helmet.adddmg
-            player.bonusdmg += player.helmet.bonusdmg
-            player.dotrateup += player.helmet.dotrateup
-            player.burnrateup += player.helmet.burnrateup
-            player.bleedrateup += player.helmet.bleedrateup
-            player.poisonrateup += player.helmet.poisonrateup
-            player.frostrateup += player.weapon.frostrateup
-            player.dotup += player.helmet.dotup
-            player.burnup += player.helmet.burnup
-            player.bleedup += player.helmet.bleedup
-            player.poisonup += player.helmet.poisonup
-            player.frostup += player.weapon.frostup
+        for condition in player.helmet.conditions:
+            if condition in player.weapon.types:
+                for stat in player.helmet.stats:
+                    player.stats[stat] += player.helmet.stats[stat]
+                break
 
     # Add Body Stats
     if player.body.name != 'Empty':
-        if player.weapon.types[player.body.condition] == 1:
-            player.hitpoints += player.body.hp
-            player.stamina += player.body.st
-            player.armor += player.body.ar
-            player.movespeedinc += player.body.mspd
-            player.attspd += player.body.attspd
-            player.relspd += player.body.relspd
-            player.refire += player.body.refire
-            player.critchance += player.body.critchance
-            player.critdmg += player.body.critdmg
-            player.incdmg += player.body.incdmg
-            player.adddmg += player.body.adddmg
-            player.bonusdmg += player.body.bonusdmg
-            player.dotrateup += player.body.dotrateup
-            player.burnrateup += player.body.burnrateup
-            player.bleedrateup += player.body.bleedrateup
-            player.poisonrateup += player.body.poisonrateup
-            player.frostrateup += player.weapon.frostrateup
-            player.dotup += player.body.dotup
-            player.burnup += player.body.burnup
-            player.bleedup += player.body.bleedup
-            player.poisonup += player.body.poisonup
-            player.frostup += player.weapon.frostup
+        for condition in player.body.conditions:
+            if condition in player.weapon.types:
+                for stat in player.body.stats:
+                    player.stats[stat] += player.body.stats[stat]
+                break
 
     # Add Boots Stats
     if player.boots.name != 'Empty':
-        if player.weapon.types[player.boots.condition] == 1:
-            player.hitpoints += player.boots.hp
-            player.stamina += player.boots.st
-            player.armor += player.boots.ar
-            player.movespeedinc += player.boots.mspd
-            player.attspd += player.boots.attspd
-            player.relspd += player.boots.relspd
-            player.refire += player.boots.refire
-            player.critchance += player.boots.critchance
-            player.critdmg += player.boots.critdmg
-            player.incdmg += player.boots.incdmg
-            player.adddmg += player.boots.adddmg
-            player.bonusdmg += player.boots.bonusdmg
-            player.dotrateup += player.boots.dotrateup
-            player.burnrateup += player.boots.burnrateup
-            player.bleedrateup += player.boots.bleedrateup
-            player.poisonrateup += player.boots.poisonrateup
-            player.frostrateup += player.weapon.frostrateup
-            player.dotup += player.boots.dotup
-            player.burnup += player.boots.burnup
-            player.bleedup += player.boots.bleedup
-            player.poisonup += player.boots.poisonup
-            player.frostup += player.weapon.frostup
+        for condition in player.boots.conditions:
+            if condition in player.weapon.types:
+                for stat in player.boots.stats:
+                    player.stats[stat] += player.boots.stats[stat]
+                break
 
     # Add Accessory Stats
     if player.accessory.name != 'Empty':
-        if player.weapon.types[player.accessory.condition] == 1:
-            player.hitpoints += player.accessory.hp
-            player.stamina += player.accessory.st
-            player.armor += player.accessory.ar
-            player.movespeedinc += player.accessory.mspd
-            player.attspd += player.accessory.attspd
-            player.relspd += player.accessory.relspd
-            player.refire += player.accessory.refire
-            player.critchance += player.accessory.critchance
-            player.critdmg += player.accessory.critdmg
-            player.incdmg += player.accessory.incdmg
-            player.adddmg += player.accessory.adddmg
-            player.bonusdmg += player.accessory.bonusdmg
-            player.dotrateup += player.accessory.dotrateup
-            player.burnrateup += player.accessory.burnrateup
-            player.bleedrateup += player.accessory.bleedrateup
-            player.poisonrateup += player.accessory.poisonrateup
-            player.frostrateup += player.weapon.frostrateup
-            player.dotup += player.accessory.dotup
-            player.burnup += player.accessory.burnup
-            player.bleedup += player.accessory.bleedup
-            player.poisonup += player.accessory.poisonup
-            player.frostup += player.weapon.frostup
+        for condition in player.accessory.conditions:
+            if condition in player.weapon.types:
+                for stat in player.accessory.stats:
+                    player.stats[stat] += player.accessory.stats[stat]
+                break
+
+    # Add Trait 1 Stats
+    if player.trait1.name != 'Empty':
+        for condition in player.trait1.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait1.stats:
+                    player.stats[stat] += player.trait1.stats[stat]
+                break
+
+    # Add Trait 2 Stats
+    if player.trait2.name != 'Empty':
+        for condition in player.trait2.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait2.stats:
+                    player.stats[stat] += player.trait2.stats[stat]
+                break
+
+    # Add Trait 3 Stats
+    if player.trait3.name != 'Empty':
+        for condition in player.trait3.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait3.stats:
+                    player.stats[stat] += player.trait3.stats[stat]
+                break
+
+    # Add Trait 4 Stats
+    if player.trait4.name != 'Empty':
+        for condition in player.trait4.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait4.stats:
+                    player.stats[stat] += player.trait4.stats[stat]
+                break
+
+    # Add Trait 5 Stats
+    if player.trait5.name != 'Empty':
+        for condition in player.trait5.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait5.stats:
+                    player.stats[stat] += player.trait5.stats[stat]
+                break
+
+    # Add Trait 6 Stats
+    if player.trait6.name != 'Empty':
+        for condition in player.trait6.conditions:
+            if condition in player.weapon.types:
+                for stat in player.trait6.stats:
+                    player.stats[stat] += player.trait6.stats[stat]
+                break
+
+
+    calculate_nonstandardmods()
+    calculate_traits()
+    calculate_passives()
 
     # Multiply Move Speed by Move Speed Inc%
-    player.movespeed *= 1 + player.movespeedinc
-    calculate_nonstandardmods()
-    calculate_perks()
-    calculate_passives()
+    player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
 
 # Calculate passives
 def calculate_passives():
     if player.klass == 'Deprived':
         if player.helmet.name == 'Empty' and player.body.name == 'Empty' and player.boots.name == 'Empty':
-            player.strprof += 0.01
-            player.dexprof += 0.01
-            player.intprof += 0.01
+            player.stats['strprof'] += 0.01
+            player.stats['dexprof'] += 0.01
+            player.stats['intprof'] += 0.01
 
     if player.klass == 'Warrior':
-        player.attspd += 0.06 * player.hitpoints
+        player.stats['attspd'] += 0.06 * player.stats['hitpoints']
 
     if player.klass == 'Knight':
-        player.incdmg += 0.08 * player.armor
+        player.stats['incdmg'] += 0.08 * player.stats['armor']
 
     '''if player.klass == 'Pyromancer':
         if player.weapon.types['Fire'] == 1:
@@ -585,25 +479,13 @@ def calculate_passives():
 # Calculate non-standard modifiers
 def calculate_nonstandardmods():
     if player.boots.name == 'Peg Leg':
-        player.movespeedinc += player.gold * 0.005
-        player.movespeed = 7.5 * (1 + player.movespeedinc)
+        player.stats['movespeedinc'] += player.stats['gold'] * 0.005
+        player.stats['movespeed'] = 7.5 * (1 + player.stats['movespeedinc'])
         
-# Calculate perks
-def calculate_perks():
-    for perk in player.perks:
-        if player.perks[perk] == 'Alacrity':
-            player.attspd += 0.3
-    for perk in player.perks:
-        if player.perks[perk] == 'Agility':
-            player.movespeedinc += 0.1
-            player.movespeed = 7.5 * (1 + player.movespeedinc)
-            player.attspd += player.movespeedinc
-    for perk in player.perks:
-        if player.perks[perk] == 'Lethality':
-            player.critdmg += 1.5
-    for perk in player.perks:
-        if player.perks[perk] == 'Swagger':
-            player.critchance = (player.critchance * 0.8) + 0.2
+# Calculate Traits
+def calculate_traits():
+    if player.trait1.name == 'Agility' or player.trait2.name == 'Agility' or player.trait3.name == 'Agility' or player.trait4.name == 'Agility' or player.trait5.name == 'Agility' or player.trait6.name == 'Agility':
+        player.stats['attspd'] += player.stats['movespeedinc']
 
 # Calculate player's DPS
 def calculate_dps():
@@ -616,28 +498,29 @@ def calculate_dps():
 
     # Main DPS calculation
     avgdmg = (player.weapon.mindmg + player.weapon.maxdmg) / 2 # Get average damage
-    hitdmg = avgdmg + player.adddmg # Add Base Damage Bonuses
-    hitdmg *= (1 + (player.weapon.upgradetier * player.weapon.upgradelevel)) # Add Upgrade Damage Bonuses
-    hitdmg *= (1 + (player.strength * (player.weapon.strsc + player.strprof)) + (player.dexterity * (player.weapon.dexsc + player.dexprof)) + (player.intelligence * (player.weapon.intsc + player.intprof))) # Add Scaling Damage Bonuses
-    hitdmg *= (1 + player.incdmg) # Add Increased Damage %
-    hitdmg += player.bonusdmg # Add Bonus Damage
-    critbonus = 1 - player.critchance + player.critchance * player.critdmg # Calculate Crit Bonus
+    hitdmg = avgdmg + player.stats['adddmg'] # Add Base Damage Bonuses
+    hitdmg *= (1 + (player.weapon.uptier * player.weapon.uplevel)) # Add Upgrade Damage Bonuses
+    hitdmg *= (1 + (player.strength * (player.weapon.strsc + player.stats['strprof'])) + (player.dexterity * (player.weapon.dexsc + player.stats['dexprof'])) + \
+    (player.intelligence * (player.weapon.intsc + player.stats['intprof']))) # Add Scaling Damage Bonuses
+    hitdmg *= 1 + player.stats['incdmg'] # Add Increased Damage %
+    hitdmg += player.stats['bonusdmg'] # Add Bonus Damage
+    critbonus = 1 - player.stats['critchance'] + player.stats['critchance'] * player.stats['critmulti'] # Calculate Crit Bonus
     critdmg = hitdmg * critbonus # Calculate Average Hit taking into account Criticals
-    generalaps = player.weapon.aps * player.attspd # Calculate the amount of shots fired per second
+    generalaps = player.weapon.aps * player.stats['attspd'] # Calculate the amount of shots fired per second
     firingtime = player.weapon.capacity / generalaps # Calculate the amount of time it takes to empty the magazine
-    reloadingtime = player.weapon.relspd * player.relspd # Calculate the amount of time it takes to reload
+    reloadingtime = player.weapon.relspd * player.stats['relspd'] # Calculate the amount of time it takes to reload
     uptime = firingtime / (firingtime + reloadingtime) # Calculate the uptime
-    maindps = generalaps * (1 + player.refire) * player.weapon.shots * critdmg * uptime # Calculate the basic hit DPS
+    maindps = generalaps * (1 + player.stats['refire']) * player.weapon.shots * critdmg * uptime # Calculate the basic hit DPS
 
     # DOT DPS calculation
-    burndmg = critdmg * player.weapon.burndmg * (1 + player.dotup + player.burnup)
-    bleeddmg = critdmg * player.weapon.bleeddmg * (1 + player.dotup + player.bleedup)
-    poisondmg = critdmg * player.weapon.poisondmg * (1 + player.dotup + player.poisonup)
-    frostdmg = critdmg * player.weapon.frostdmg * (1 + player.dotup + player.frostup)
-    burntickrate = player.weapon.dottickrate * (1 + player.dotrateup + player.burnrateup)
-    bleedtickrate = player.weapon.dottickrate * (1 + player.dotrateup + player.bleedrateup)
-    poisontickrate = player.weapon.dottickrate * (1 + player.dotrateup + player.poisonrateup)
-    frosttickrate = player.weapon.dottickrate * (1 + player.dotrateup + player.frostrateup)
+    burndmg = critdmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
+    bleeddmg = critdmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
+    poisondmg = critdmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
+    frostdmg = critdmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
+    burntickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
+    bleedtickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
+    poisontickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
+    frosttickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['frostrateup'])
     dotdps = (burndmg * burntickrate) + (bleeddmg * bleedtickrate) + (poisondmg * poisontickrate) + (frostdmg * frosttickrate)
 
     # Total DPS calculation
@@ -651,25 +534,29 @@ def main_loop():
     calculate_stats()
     calculate_dps()
 
-    mspd = format(player.movespeedinc, '.0%')
-    aspd = format(player.attspd, '.0%')
-    refc = format(player.refire, '.0%')
-    critc = format(player.critchance, '.0%')
-    critd = format(player.critdmg, '.0%')
+    playhp = player.stats['hitpoints']
+    playarm = player.stats['armor']
+    playsta = player.stats['stamina']
+    playmspd = player.stats['movespeed']
+    mspd = format(player.stats['movespeedinc'], '.0%')
+    aspd = format(player.stats['attspd'], '.0%')
+    refc = format(player.stats['refire'], '.0%')
+    critc = format(player.stats['critchance'], '.0%')
+    critd = format(player.stats['critmulti'], '.0%')
 
     while True:
-        print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"PERKS":35s}\tDPS')
-        print(f'Weapon: {f"{player.weapon.name} + {player.weapon.upgradelevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Perk 1: {player.perks[1]}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
-        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {player.hitpoints} | ARMOR: {player.armor} | STAMINA: {player.stamina}":70s}\t{f"Perk 2: {player.perks[2]}":35s}\t{colors.bcolors.OKBLUE}{format(maindps, ".2f")}{colors.bcolors.ENDC}')
-        print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {player.movespeed} (+{mspd})":70s}\t{f"Perk 3: {player.perks[3]}":35s}\t{colors.bcolors.OKGREEN}DPS (DOT){colors.bcolors.ENDC}')
-        print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Perk 4: {player.perks[4]}":35s}\t{colors.bcolors.OKGREEN}{format(dotdps, ".2f")}{colors.bcolors.ENDC}')
-        print(f'Boots: {player.boots.name:35s}\t{f"Critical Chance: {critc}":70s}\t{f"Perk 5: {player.perks[5]}":35s}\t{colors.bcolors.WARNING}DPS (Total){colors.bcolors.ENDC}')
-        print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Perk 6: {player.perks[6]}":35s}\t{colors.bcolors.WARNING}{format(totaldps, ".2f")}{colors.bcolors.ENDC}\n')
+        print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
+        print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
+        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | ARMOR: {playarm} | STAMINA: {playsta}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{colors.bcolors.OKBLUE}{format(maindps, ".2f")}{colors.bcolors.ENDC}')
+        print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 3: {player.trait3.name}":35s}\t{colors.bcolors.OKGREEN}DPS (DOT){colors.bcolors.ENDC}')
+        print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{colors.bcolors.OKGREEN}{format(dotdps, ".2f")}{colors.bcolors.ENDC}')
+        print(f'Boots: {player.boots.name:35s}\t{f"Critical Chance: {critc}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\t{colors.bcolors.WARNING}DPS (Total){colors.bcolors.ENDC}')
+        print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{colors.bcolors.WARNING}{format(totaldps, ".2f")}{colors.bcolors.ENDC}\n')
 
         print('OPTIONS')
         print('1. Change Equipment')
         print('2. Change Stats')
-        print('3. Add or Change a Perk')
+        print('3. Add or Change a Trait')
         print('4. Change Stat Proficiency')
         choice = int(input('>'))
 
@@ -681,7 +568,7 @@ def main_loop():
                 change_stats()
                 break
             case 3:
-                change_perk()
+                change_trait()
                 break
             case 4:
                 change_proficiency()
