@@ -6,7 +6,7 @@ class Player:
     'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     # Inherit values from the chosen class
-    def __init__(self, klass, inittrait):
+    def __init__(self, klass):
         self.klass = klass.name
         self.strength = klass.strength
         self.dexterity = klass.dexterity
@@ -17,12 +17,12 @@ class Player:
         self.body = klass.body
         self.boots = klass.boots
         self.accessory = klass.accessory
-        self.trait1 = inittrait
-        self.trait2 = inittrait
-        self.trait3 = inittrait
-        self.trait4 = inittrait
-        self.trait5 = inittrait
-        self.trait6 = inittrait
+        self.trait1 = klass.empty
+        self.trait2 = klass.empty
+        self.trait3 = klass.empty
+        self.trait4 = klass.empty
+        self.trait5 = klass.empty
+        self.trait6 = klass.empty
 
 class Klass:
     def __init__(self, name, itemempty, strength, dexterity, intelligence, weapon, helmet = None, body = None, boots = None, offhand = None, accessory = None):
@@ -58,6 +58,8 @@ class Klass:
         else:
             self.accessory = accessory
 
+        self.empty = itemempty
+
         self.weapon = weapon
 
 class Weapon:
@@ -85,12 +87,6 @@ class Weapon:
 class Item:
     def __init__(self, slot, name, conditions = ['Unconditional'], stats = {}):
         self.slot = slot
-        self.name = name
-        self.conditions = conditions
-        self.stats = stats
-
-class Trait:
-    def __init__(self, name, conditions = ['Unconditional'], stats = {}):
         self.name = name
         self.conditions = conditions
         self.stats = stats
@@ -175,33 +171,30 @@ def initialize_classes():
                 print(colors.bcolors.FAIL + 'Please input a correct number corresponding to the class you\'re playing!' + colors.bcolors.ENDC)
 
     global player
-    player = Player(klass, alltraits['empty'])
+    player = Player(klass)
 
 # Perform the initial setup. A goal here would be to load in items from a file into a dictionary from which they'd be easily accessible.
 def initial_setup():
     # Create an empty placeholder item
     itemempty = Item('Any', 'Empty')
-    # Create an empty placeholder trait
-    traitempty = Trait('Empty')
     # Create Magic Quiver
     item1 = Item('Offhand', 'Magic Quiver', ['Bow', 'Crossbow'], {'refire':0.2})
     # Create Molotov Cocktail
     weapon1 = Weapon('Molotov Cocktail', 0.13, 0, 0.0, 0.03, 0.01, 175, 200, 2, 1, 1, 0, 0.6, 0, 0, 0, 1, ['One-handed', 'Ranged', 'Physical', 'Unconditional'], {'burnup':0.75})
     # Create Alacrity Trait
-    trait1 = Trait('Alacrity', ['Unconditional'], {'attspd':0.3})
+    trait1 = Item('Trait', 'Alacrity', ['Unconditional'], {'attspd':0.3})
     # Create Agility Trait
-    trait2 = Trait('Agility', ['Unconditional'], {'movespeedinc':0.1})
+    trait2 = Item('Trait', 'Agility', ['Unconditional'], {'movespeedinc':0.1})
     # Create Lethality Trait
-    trait3 = Trait('Lethality', ['Unconditional'], {'critmulti':1.5})
+    trait3 = Item('Trait', 'Lethality', ['Unconditional'], {'critmulti':1.5})
     # Initialize Ranger's starting equipment manually
     rangerweapon = Weapon('Shortbow', 0.16, 0, 0.01, 0.03, 0.00, 150, 175, 2.75, 1, 1, 0, 0, 0, 0, 0, 0, ['Two-handed', 'Ranged', 'Physical', 'Bow', 'Unconditional'])
     rangerhelmet = Item('Helmet', 'Hunter Cap', ['Ranged'], {'attspd':0.1})
     rangerbody = Item('Body', 'Ranger Cloak')
     # Create dictionaries of all items and all perks manually
     global allitems
-    allitems = {'empty' : itemempty, 'motail' : weapon1, 'shtbow' : rangerweapon, 'hutcap' : rangerhelmet, 'racloak' : rangerbody, 'maiver': item1}
-    global alltraits
-    alltraits = {'empty' : traitempty, 'alacrity':trait1, 'agility':trait2, 'lethality':trait3}
+    allitems = {'empty' : itemempty, 'motail' : weapon1, 'shtbow' : rangerweapon, 'hutcap' : rangerhelmet, 'racloak' : rangerbody, 'maiver': item1, \
+    'alacrity':trait1, 'agility':trait2, 'lethality':trait3}
     initialize_classes()
 
 # Let the user change a piece of their equipment
@@ -265,27 +258,27 @@ def change_trait():
         match choice:
             case 1:
                 name = input('Input the trait\'s name >').lower()
-                player.trait1 = alltraits[name]
+                player.trait1 = allitems[name]
                 return
             case 2:
                 name = input('Input the trait\'s name >').lower()
-                player.trait2 = alltraits[name]
+                player.trait2 = allitems[name]
                 return
             case 3:
                 name = input('Input the trait\'s name >').lower()
-                player.trait3 = alltraits[name]
+                player.trait3 = allitems[name]
                 return
             case 4:
                 name = input('Input the trait\'s name >').lower()
-                player.trait4 = alltraits[name]
+                player.trait4 = allitems[name]
                 return
             case 5:
                 name = input('Input the trait\'s name >').lower()
-                player.trait5 = alltraits[name]
+                player.trait5 = allitems[name]
                 return
             case 6:
                 name = input('Input the trait\'s name >').lower()
-                player.trait6 = alltraits[name]
+                player.trait6 = allitems[name]
                 return
             case _:
                 line_operations.cls()
