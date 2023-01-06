@@ -717,6 +717,9 @@ def main_loop():
 
     while True:
         print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
+
+        print(f'{"------------":40s}\t{"-----":70s}\t{"------":35s}\t---')
+
         if player.modifier.name == 'Empty':
             print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
         else:
@@ -724,7 +727,7 @@ def main_loop():
 
         print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')        
         
-        print(f'Helmet: {player.helmet.name:35s}\t{f"STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+        print(f'Helmet: {player.helmet.name:35s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
         
         print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{format(dotdps, ".2f")}')
         
