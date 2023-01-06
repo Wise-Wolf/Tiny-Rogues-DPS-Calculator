@@ -12,3 +12,9 @@ def overwrite_line():
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
+
+def strike_through(text):
+    result = ''
+    for c in text:
+        result = result + c + '\u0336'
+    return result

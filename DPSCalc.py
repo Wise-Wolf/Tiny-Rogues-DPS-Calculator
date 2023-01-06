@@ -1,9 +1,16 @@
-import line_operations, colors
+import line_operations
 
 class Player:
-    stats = {'gold':0, 'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
     'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
+
+    gold = 0
+    weaponstacks = 0
+    hitpointsinc = 0
+    soulheartsinc = 0
+    armorinc = 0
+    manainc = 0
 
     # Inherit values from the chosen class
     def __init__(self, klass):
@@ -171,7 +178,7 @@ def initialize_classes():
                 break
             case _:
                 line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct number corresponding to the class you\'re playing!' + colors.bcolors.ENDC)
+                print('Please input a correct number corresponding to the class you\'re playing!')
 
     global player
     player = Player(klass)
@@ -362,6 +369,7 @@ def change_stats():
         print('1. STR')
         print('2. DEX')
         print('3. INT')
+        
         try:
             choice = int(input('>'))
         except:
@@ -390,11 +398,101 @@ def change_stats():
                 line_operations.cls()
                 print('Please input a correct option!')
 
+# Let the user change one of their counters
+def change_counters():
+    choice = 0
+    line_operations.cls()
+
+    while True:
+        print('Which counter do you want to change?')
+        print('1. Hearts')
+        print('2. Soul Hearts')
+        print('3. Armor')
+        print('4. Mana')
+        print('5. Gold')
+        print('6. Weapon Stacks')
+
+        try:
+            choice = int(input('>'))
+        except:
+            input('Please input a number!')
+        
+        match choice:
+            case 1:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How many extra hearts do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.hitpointsinc = choice
+                return
+            case 2:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How many extra soul hearts do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.soulheartsinc = choice
+                return
+            case 3:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How many extra armor points do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.armorinc = choice
+                return
+            case 4:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How many extra mana points do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.manainc = choice
+                return
+            case 5:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How much gold do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.gold = choice
+                return
+            case 6:
+                while True:
+                    line_operations.cls()
+                    try:
+                        print('How many weapon stacks do you have?')
+                        choice = int(input('>'))
+                        break
+                    except:
+                        input('Please input a number!')
+                player.weaponstacks = choice
+                return
+            case _:
+                line_operations.cls()
+                print('Please input a correct option!')
+
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
-    player.stats = {'gold':0, 'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    player.stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
     'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     # Calculate stat bonuses
@@ -507,8 +605,26 @@ def calculate_stats():
     calculate_traits()
     calculate_passives()
 
-    # Multiply Move Speed by Move Speed Inc%
+    # Calculate Move Speed by multiplying it by Move Speed Inc%
     player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
+
+    # Calculate Player's Hearts, Soul Hearts, Armor, and Mana
+    player.stats['hitpoints'] += player.hitpointsinc
+    player.stats['soulhearts'] += player.soulheartsinc
+    player.stats['armor'] += player.armorinc
+    player.stats['mana'] += player.manainc
+
+    # Cap Critical Chance at 100%
+    if player.stats['critchance'] > 1:
+        player.stats['critchance'] = 1
+    
+    # Cap Armor Break at 25%
+    if player.stats['arbreak'] > 0.25:
+        player.stats['arbreak'] = 0.25
+    
+    # Cap Shock at 24%
+    if player.stats['shock'] > 0.24:
+        player.stats['shock'] = 0.24
 
 # Calculate passives
 def calculate_passives():
@@ -558,17 +674,18 @@ def calculate_dps():
     hitdmg += player.stats['bonusdmg'] # Add Bonus Damage
     critbonus = 1 - player.stats['critchance'] + player.stats['critchance'] * player.stats['critmulti'] # Calculate Crit Bonus
     critdmg = hitdmg * critbonus # Calculate Average Hit taking into account Criticals
+    finaldmg = critdmg * (1 + player.stats['arbreak'] + player.stats['shock'])
     generalaps = player.weapon.aps * player.stats['attspd'] # Calculate the amount of shots fired per second
     firingtime = player.weapon.capacity / generalaps # Calculate the amount of time it takes to empty the magazine
     reloadingtime = player.weapon.relspd * player.stats['relspd'] # Calculate the amount of time it takes to reload
     uptime = firingtime / (firingtime + reloadingtime) # Calculate the uptime
-    maindps = generalaps * (1 + player.stats['refire']) * player.weapon.shots * critdmg * uptime # Calculate the basic hit DPS
+    maindps = generalaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg * uptime # Calculate the basic hit DPS
 
     # DOT DPS calculation
-    burndmg = critdmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
-    bleeddmg = critdmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
-    poisondmg = critdmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
-    frostdmg = critdmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
+    burndmg = finaldmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
+    bleeddmg = finaldmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
+    poisondmg = finaldmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
+    frostdmg = finaldmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
     burntickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
     bleedtickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
     poisontickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
@@ -599,19 +716,25 @@ def main_loop():
     while True:
         print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
         if player.modifier.name == 'Empty':
-            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
+            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
         else:
-            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\t{colors.bcolors.OKBLUE}DPS (Main hits){colors.bcolors.ENDC}')
-        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | ARMOR: {playarm} | STAMINA: {playsta}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{colors.bcolors.OKBLUE}{format(maindps, ".2f")}{colors.bcolors.ENDC}')
-        print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 3: {player.trait3.name}":35s}\t{colors.bcolors.OKGREEN}DPS (DOT){colors.bcolors.ENDC}')
-        print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{colors.bcolors.OKGREEN}{format(dotdps, ".2f")}{colors.bcolors.ENDC}')
-        print(f'Boots: {player.boots.name:35s}\t{f"Critical Chance: {critc}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\t{colors.bcolors.WARNING}DPS (Total){colors.bcolors.ENDC}')
-        print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{colors.bcolors.WARNING}{format(totaldps, ".2f")}{colors.bcolors.ENDC}\n')
+            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
+
+        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | ARMOR: {playarm} | STAMINA: {playsta}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')        
+        
+        print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+        
+        print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{format(dotdps, ".2f")}')
+        
+        print(f'Boots: {player.boots.name:35s}\t{f"Critical Chance: {critc}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
+        
+        print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
 
         print('OPTIONS')
         print('1. Change Stats')
         print('2. Change Equipment')
         print('3. Add or Change a Trait')
+        print('4. Change counters')
         choice = int(input('>'))
 
         match choice:
@@ -624,9 +747,12 @@ def main_loop():
             case 3:
                 change_trait()
                 break
+            case 4:
+                change_counters()
+                break
             case _:
                 line_operations.cls()
-                print(colors.bcolors.FAIL + 'Please input a correct option!' + colors.bcolors.ENDC)
+                print('Please input a correct option!')
 
 # Main program
 def Main():
