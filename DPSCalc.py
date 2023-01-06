@@ -704,8 +704,10 @@ def main_loop():
     calculate_dps()
 
     playhp = player.stats['hitpoints']
+    playsh = player.stats['soulhearts']
     playarm = player.stats['armor']
     playsta = player.stats['stamina']
+    playmp = player.stats['mana']
     playmspd = player.stats['movespeed']
     mspd = format(player.stats['movespeedinc'], '.0%')
     aspd = format(player.stats['attspd'], '.0%')
@@ -720,15 +722,15 @@ def main_loop():
         else:
             print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
 
-        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | ARMOR: {playarm} | STAMINA: {playsta}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')        
+        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')        
         
-        print(f'Helmet: {player.helmet.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+        print(f'Helmet: {player.helmet.name:35s}\t{f"STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
         
         print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{format(dotdps, ".2f")}')
         
-        print(f'Boots: {player.boots.name:35s}\t{f"Critical Chance: {critc}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
+        print(f'Boots: {player.boots.name:35s}\t{f"Crit Chance: {critc} | Crit Multiplier: {critd}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
         
-        print(f'Accessory: {player.accessory.name:35s}\t{f"Critical Multiplier: {critd}":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
+        print(f'Accessory: {player.accessory.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
 
         print('OPTIONS')
         print('1. Change Stats')
