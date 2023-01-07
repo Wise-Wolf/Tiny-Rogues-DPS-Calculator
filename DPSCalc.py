@@ -1,4 +1,4 @@
-import line_operations
+import line_operations, math
 
 class Player:
     stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
@@ -674,12 +674,13 @@ def calculate_dps():
     hitdmg += player.stats['bonusdmg'] # Add Bonus Damage
     critbonus = 1 - player.stats['critchance'] + player.stats['critchance'] * player.stats['critmulti'] # Calculate Crit Bonus
     critdmg = hitdmg * critbonus # Calculate Average Hit taking into account Criticals
-    finaldmg = critdmg * (1 + player.stats['arbreak'] + player.stats['shock'])
+    finaldmg = critdmg * (1 + player.stats['arbreak'] + player.stats['shock']) # Calculate the amount of damage done to Armor Broken/Shocked enemies
     generalaps = player.weapon.aps * player.stats['attspd'] # Calculate the amount of shots fired per second
-    firingtime = player.weapon.capacity / generalaps # Calculate the amount of time it takes to empty the magazine
-    reloadingtime = player.weapon.relspd * player.stats['relspd'] # Calculate the amount of time it takes to reload
-    uptime = firingtime / (firingtime + reloadingtime) # Calculate the uptime
-    maindps = generalaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg * uptime # Calculate the basic hit DPS
+    reloadingtime = player.weapon.relspd * player.stats['relspd'] # Calculate the amount of time spent reloading
+    attackinterval = 1 / generalaps # Calculate the Attack Interval
+    adjustedaps = player.weapon.capacity / (player.weapon.capacity * attackinterval + max(0, (reloadingtime - attackinterval) * math.ceil((math.pi * reloadingtime) % 1))) # Calculate the Adjusted APS
+
+    maindps = adjustedaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg  # Calculate the basic hit DPS
 
     # DOT DPS calculation
     burndmg = finaldmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
