@@ -45,6 +45,7 @@ def initial_setup():
     
         # Let the user choose their starting class
     while True:
+        line_operations.cls()
         print('Please choose your class')
         print('1. Deprived')
         print('2. The Hero')
@@ -75,8 +76,9 @@ def initial_setup():
                 klass = allitems['ranger']
                 break
             case 5:
-                klass = allitems['sorcerer']
-                break
+                input('Not available right now.')
+                '''klass = allitems['sorcerer']
+                break'''
             case 6:
                 klass = allitems['wanderer']
                 break
@@ -87,11 +89,13 @@ def initial_setup():
                 klass = allitems['thief']
                 break
             case 9:
-                klass = allitems['pyromancer']
-                break
+                input('Not available right now.')
+                '''klass = allitems['pyromancer']
+                break'''
             case 10:
-                klass = allitems['cleric']
-                break
+                input('Not available right now.')
+                '''klass = allitems['cleric']
+                break'''
             case 11:
                 klass = allitems['bandit']
                 break
@@ -102,8 +106,6 @@ def initial_setup():
                 klass = allitems['doppelganger']
                 break
             case _:
-                line_operations.delete_last_line()
-                line_operations.delete_last_line()
                 input('Please input a correct number corresponding to the class you\'re playing!')
     
     global player
