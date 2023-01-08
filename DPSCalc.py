@@ -1,4 +1,4 @@
-import line_operations, math
+import line_operations, math, load_data
 
 class Player:
     stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
@@ -7,6 +7,7 @@ class Player:
 
     gold = 0
     weaponstacks = 0
+    armorstacks = 0
     hitpointsinc = 0
     soulheartsinc = 0
     armorinc = 0
@@ -32,94 +33,17 @@ class Player:
         self.trait5 = klass.empty
         self.trait6 = klass.empty
 
-class Klass:
-    def __init__(self, name, itemempty, strength, dexterity, intelligence, weapon, helmet = None, body = None, boots = None, offhand = None, accessory = None):
-        self.name = name
-        
-        self.strength = strength
-        self.dexterity = dexterity
-        self.intelligence = intelligence
-
-        # If a class doesn't start with a certain item, it is assigned an empty one
-        if helmet is None:
-            self.helmet = itemempty
-        else:
-            self.helmet = helmet
-        
-        if body is None:
-            self.body = itemempty
-        else:
-            self.body = body
-
-        if boots is None:
-            self.boots = itemempty
-        else:
-            self.boots = boots
-
-        if offhand is None:
-            self.offhand = itemempty
-        else:
-            self.offhand = offhand
-
-        if accessory is None:
-            self.accessory = itemempty
-        else:
-            self.accessory = accessory
-
-        self.empty = itemempty
-
-        self.weapon = weapon
-
-class Weapon:
-    slot = 'Weapon'
-
-    def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, dottickrate, types = ['Unconditional'], stats = {}):
-        self.name = name
-        self.uptier = uptier
-        self.uplevel = uplevel
-        self.strsc = strsc
-        self.dexsc = dexsc
-        self.intsc = intsc
-        self.mindmg = mindmg
-        self.maxdmg = maxdmg
-        self.aps = aps
-        self.shots = shots
-        self.capacity = capacity
-        self.relspd = relspd
-        self.burndmg = burndmg
-        self.bleeddmg = bleeddmg
-        self.poisondmg = poisondmg
-        self.frostdmg = frostdmg
-        self.dottickrate = dottickrate
-        self.types = types
-        self.stats = stats
-
-class Item:
-    def __init__(self, slot, name, conditions = ['Unconditional'], stats = {}):
-        self.slot = slot
-        self.name = name
-        self.conditions = conditions
-        self.stats = stats
-
-# Create classes
-def initialize_classes():
-    # Create all the classes, and give them their starting stats + starting gear
-    deprived = Klass('Deprived', allitems['empty'], 1, 1, 1, allitems['motail'])
-    thehero = Klass('The Hero', allitems['empty'], 1, 1, 1, allitems['motail'])
-    warrior = Klass('Warrior', allitems['empty'], 3, 1, 0, allitems['motail'])
-    ranger = Klass('Ranger', allitems['empty'], 1, 3, 0, allitems['shtbow'], allitems['hutcap'], allitems['racloak'])
-    sorcerer = Klass('Sorcerer', allitems['empty'], 0, 0, 4, allitems['motail'])
-    wanderer = Klass('Wanderer', allitems['empty'], 1, 2, 1, allitems['motail'])
-    knight = Klass('Knight', allitems['empty'], 2, 1, 1, allitems['motail'])
-    thief = Klass('Thief', allitems['empty'], 0, 3, 1, allitems['motail'])
-    pyromancer = Klass('Pyromancer', allitems['empty'], 1, 0, 3, allitems['motail'])
-    cleric = Klass('Cleric', allitems['empty'], 2, 0, 2, allitems['motail'])
-    bandit = Klass('Bandit', allitems['empty'], 2, 2, 0, allitems['motail'])
-    gunslinger = Klass('Gunslinger', allitems['empty'], 0, 2, 2, allitems['motail'])
-    doppelganger = Klass('Doppelganger', allitems['empty'], 2, 2, 2, allitems['motail'])
-
+# Perform the initial setup.
+def initial_setup():
+    
     choice = 0
-    # Let the user choose their starting class
+
+    print('Loading data...')
+
+    global allitems
+    allitems = load_data.parse_data()
+    
+        # Let the user choose their starting class
     while True:
         print('Please choose your class')
         print('1. Deprived')
@@ -135,80 +59,55 @@ def initialize_classes():
         print('11. Bandit')
         print('12. Gunslinger')
         print('99. Doppelganger')
-        choice = int(input('>'))   
+        choice = int(input('>'))
+
         match choice:
             case 1:
-                klass = deprived
+                klass = allitems['deprived']
                 break
             case 2:
-                klass = thehero
+                klass = allitems['the hero']
                 break
             case 3:
-                klass = warrior
+                klass = allitems['warrior']
                 break
             case 4:
-                klass = ranger
+                klass = allitems['ranger']
                 break
             case 5:
-                klass = sorcerer
+                klass = allitems['sorcerer']
                 break
             case 6:
-                klass = wanderer
+                klass = allitems['wanderer']
                 break
             case 7:
-                klass = knight
+                klass = allitems['knight']
                 break
             case 8:
-                klass = thief
+                klass = allitems['thief']
                 break
             case 9:
-                klass = pyromancer
+                klass = allitems['pyromancer']
                 break
             case 10:
-                klass = cleric
+                klass = allitems['cleric']
                 break
             case 11:
-                klass = bandit
+                klass = allitems['bandit']
                 break
             case 12:
-                klass = gunslinger
+                klass = allitems['gunslinger']
                 break
             case 99:
-                klass = doppelganger
+                klass = allitems['doppelganger']
                 break
             case _:
-                line_operations.cls()
-                print('Please input a correct number corresponding to the class you\'re playing!')
-
+                line_operations.delete_last_line()
+                line_operations.delete_last_line()
+                input('Please input a correct number corresponding to the class you\'re playing!')
+    
     global player
     player = Player(klass)
-
-# Perform the initial setup. A goal here would be to load in items from a file into a dictionary from which they'd be easily accessible.
-def initial_setup():
-    # Create an empty placeholder item
-    itemempty = Item('Any', 'Empty')
-    # Create Magic Quiver
-    item1 = Item('Offhand', 'Magic Quiver', ['Bow', 'Crossbow'], {'refire':0.2})
-    # Create Molotov Cocktail
-    weapon1 = Weapon('Molotov Cocktail', 0.13, 0, 0.0, 0.03, 0.01, 175, 200, 2, 1, 1, 0, 0.6, 0, 0, 0, 1, ['One-handed', 'Ranged', 'Physical', 'Unconditional'], {'burnup':0.75})
-    # Create Alacrity Trait
-    trait1 = Item('Trait', 'Alacrity', ['Unconditional'], {'attspd':0.3})
-    # Create Agility Trait
-    trait2 = Item('Trait', 'Agility', ['Unconditional'], {'movespeedinc':0.1})
-    # Create Lethality Trait
-    trait3 = Item('Trait', 'Lethality', ['Unconditional'], {'critmulti':1.5})
-    # Create Crappy Modifier
-    modifier1 = Item('Modifier', 'Crappy', ['Unconditional'], {'incdmg':-0.1, 'attspd':-0.05})
-    # Initialize Ranger's starting equipment manually
-    rangerweapon = Weapon('Shortbow', 0.16, 0, 0.01, 0.03, 0.00, 150, 175, 2.75, 1, 1, 0, 0, 0, 0, 0, 0, ['Two-handed', 'Ranged', 'Physical', 'Bow', 'Unconditional'])
-    rangerhelmet = Item('Helmet', 'Hunter Cap', ['Ranged'], {'attspd':0.1})
-    rangerbody = Item('Body', 'Ranger Cloak')
-    # Create dictionaries of all items and all perks manually
-    global allitems
-    allitems = {'empty' : itemempty, 'motail' : weapon1, 'shtbow' : rangerweapon, 'hutcap' : rangerhelmet, 'racloak' : rangerbody, 'maiver': item1, \
-    'alacrity':trait1, 'agility':trait2, 'lethality':trait3, \
-    'crappy':modifier1}
-    initialize_classes()
 
 # Let the user change a piece of their equipment
 def change_equip():
@@ -243,7 +142,7 @@ def change_equip():
                 else:
                     match choice:
                         case 1:
-                            if allitems[name].slot != 'Weapon' and allitems[name].slot != 'Any':
+                            if allitems[name].slot != 'Weapon':
                                 print('That\'s not a weapon!')
                                 input('Returning to menu...')
                             else:
@@ -600,19 +499,21 @@ def calculate_stats():
                     player.stats[stat] += player.trait6.stats[stat]
                 break
 
-
-    calculate_nonstandardmods()
-    calculate_traits()
-    calculate_passives()
-
-    # Calculate Move Speed by multiplying it by Move Speed Inc%
-    player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
-
     # Calculate Player's Hearts, Soul Hearts, Armor, and Mana
     player.stats['hitpoints'] += player.hitpointsinc
     player.stats['soulhearts'] += player.soulheartsinc
     player.stats['armor'] += player.armorinc
     player.stats['mana'] += player.manainc
+
+    calculate_nonstandardmods()
+    calculate_traits()
+    calculate_passives()
+
+    # Calculate Reload Speed based on DEX
+    player.stats['relspd'] += 0.25 * player.dexterity
+
+    # Calculate Move Speed by multiplying it by Move Speed Inc%
+    player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
 
     # Cap Critical Chance at 100%
     if player.stats['critchance'] > 1:
@@ -683,15 +584,30 @@ def calculate_dps():
     maindps = adjustedaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg  # Calculate the basic hit DPS
 
     # DOT DPS calculation
-    burndmg = finaldmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
-    bleeddmg = finaldmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
-    poisondmg = finaldmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
-    frostdmg = finaldmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
-    burntickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
-    bleedtickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
-    poisontickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
-    frosttickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['frostrateup'])
-    dotdps = (burndmg * burntickrate) + (bleeddmg * bleedtickrate) + (poisondmg * poisontickrate) + (frostdmg * frosttickrate)
+    if player.weapon.burndmg > 0:
+        burndmg = finaldmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
+        burntickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
+        dotdps += burndmg * burntickrate
+
+    if player.weapon.bleeddmg > 0:    
+        bleeddmg = finaldmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
+        bleedtickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
+        dotdps += bleeddmg * bleedtickrate
+
+    if player.weapon.poisondmg > 0:
+        poisondmg = finaldmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
+        poisontickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
+        dotdps += poisondmg * poisontickrate
+
+    if player.weapon.frostdmg > 0:
+        frostdmg = finaldmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
+        frosttickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['frostrateup'])
+        dotdps += frostdmg * frosttickrate
+    
+    if player.weapon.specialdotdmg > 0:
+        specialdotdmg = finaldmg * player.weapon.specialdotdmg * (1 + player.stats['dotup'])
+        specialdottickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'])
+        dotdps += specialdotdmg * specialdottickrate
 
     # Total DPS calculation
     totaldps = maindps + dotdps
