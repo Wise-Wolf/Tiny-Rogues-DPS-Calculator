@@ -185,7 +185,7 @@ def parse_data():
             token.write(creds.to_json())
 
     try:
-        service = build('sheets', 'v4', credentials=creds)
+        service = build('sheets', 'v4', credentials=creds, static_discovery=False)
         global sheet
         sheet = service.spreadsheets()
     except HttpError as err:
