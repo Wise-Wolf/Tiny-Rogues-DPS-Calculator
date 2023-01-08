@@ -414,7 +414,7 @@ def calculate_stats():
 
     # Add Offhand Stats
     if player.offhand.name != 'Empty':
-        if 'Two-handed' not in player.weapon.types or 'Bow' in player.weapon.types:
+        if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types):
             for condition in player.offhand.conditions:
                 if condition in player.weapon.types:
                     for stat in player.offhand.stats:
@@ -622,12 +622,16 @@ def main_loop():
     calculate_stats()
     calculate_dps()
 
+    weptypes = '/'.join(player.weapon.types[:-1])
     playhp = player.stats['hitpoints']
     playsh = player.stats['soulhearts']
     playarm = player.stats['armor']
     playsta = player.stats['stamina']
     playmp = player.stats['mana']
     playmspd = player.stats['movespeed']
+    playadddmg = player.stats['adddmg']
+    playbonusdmg = player.stats['bonusdmg']
+    playdmginc = format(player.stats['incdmg'], '.0%')
     mspd = format(player.stats['movespeedinc'], '.0%')
     aspd = format(player.stats['attspd'], '.0%')
     refc = format(player.stats['refire'], '.0%')
@@ -635,24 +639,29 @@ def main_loop():
     critd = format(player.stats['critmulti'], '.0%')
 
     while True:
-        print(f'{"CURRENT GEAR":40s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
+        print(f'{"CURRENT GEAR":50s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
 
-        print(f'{"------------":40s}\t{"-----":70s}\t{"------":35s}\t---')
+        print(f'{"------------":50s}\t{"-----":70s}\t{"------":35s}\t---')
 
         if player.modifier.name == 'Empty':
-            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
+            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
         else:
-            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":35s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
+            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
 
-        print(f'Offhand: {player.offhand.name:35s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')        
+        print(f'Types: {weptypes:45s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')
+
+        if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types and (('Bow' or 'Crossbow') in player.offhand.conditions or player.offhand.name == 'Empty')):
+            print(f'Offhand: {player.offhand.name:40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')        
+        else:
+            print(f'Offhand: {f"{player.offhand.name} (Inactive - 2H Weapon Equipped.)":40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+
+        print(f'Helmet: {player.helmet.name:40s}\t{f"DMG INC%: {playdmginc} | ADD DMG: {playadddmg} | BONUS DMG: {playbonusdmg}":70s}\t{f"------":35s}\t{format(dotdps, ".2f")}')
         
-        print(f'Helmet: {player.helmet.name:35s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+        print(f'Body: {player.body.name:45s}\t{f"ATT SPD%: {aspd} | REFIRE%: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{f"---"}')
         
-        print(f'Body: {player.body.name:35s}\t{f"Attack Speed: {aspd} | Refire Chance: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{format(dotdps, ".2f")}')
+        print(f'Boots: {player.boots.name:45s}\t{f"CRIT%: {critc} | CRIT MULTI%: {critd}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
         
-        print(f'Boots: {player.boots.name:35s}\t{f"Crit Chance: {critc} | Crit Multiplier: {critd}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
-        
-        print(f'Accessory: {player.accessory.name:35s}\t{f"Movement Speed: {playmspd} (+{mspd})":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
+        print(f'Accessory: {player.accessory.name:40s}\t{f"MOVE SPD (INC%): {playmspd} (+{mspd})":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
 
         print('OPTIONS')
         print('1. Change Stats')
