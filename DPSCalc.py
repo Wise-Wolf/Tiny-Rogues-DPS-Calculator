@@ -470,7 +470,7 @@ def calculate_stats():
 
     # Calculate Mana Damage Bonus
     manaincdmg = 0.05 * (1 + player.stats['manabonusinc'])
-    if 'Magical' in player.weapon.types:
+    if 'Magic' in player.weapon.types:
         player.stats['incdmg'] += player.stats['mana'] * manaincdmg
     elif 'Elemental' in player.weapon.types:
         for trait in player.traits:
