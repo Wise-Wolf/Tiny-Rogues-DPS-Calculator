@@ -63,7 +63,7 @@ SPREADSHEET_ID = '1QyCWcp8wB7kwCERdsyhKvFfqab2mn8ZgGUmUJq407Yw'
 WEAPONS = 'Weapon Stats!A1:S'
 ITEMS = 'Item Stats!A1:D'
 TRAITS = 'Trait Stats!A1:D'
-# MODIFIERS = 'Modifiers!A1:D'
+MODIFIERS = 'Modifiers!A1:D'
 CLASSES = 'Classes!A1:J'
 
 # Parse Weapon Data
@@ -131,8 +131,7 @@ def parse_traits():
 
 # Parse Modifier Data
 def parse_modifiers():
-    pass
-    '''result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=MODIFIERS, majorDimension='ROWS').execute()
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=MODIFIERS, majorDimension='ROWS').execute()
     values = result.get('values', [])
 
     klass = globals()['Item']
@@ -147,7 +146,7 @@ def parse_modifiers():
         except:
             newdict = {}
         instance = klass(row[3], row[0], row[1].split(', '), newdict)
-        allitems[instance.name.lower()] = instance'''
+        allitems[instance.name.lower()] = instance
 
 # Parse Starter Gear for Classes
 def parse_classes():
