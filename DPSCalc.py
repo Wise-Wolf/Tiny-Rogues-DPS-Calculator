@@ -2,7 +2,7 @@ import line_operations, math, load_data
 
 class Player:
     stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, 'manabonusinc': 0.0, \
     'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     gold = 0
@@ -26,12 +26,7 @@ class Player:
         self.boots = klass.boots
         self.accessory = klass.accessory
         self.modifier = klass.empty
-        self.trait1 = klass.empty
-        self.trait2 = klass.empty
-        self.trait3 = klass.empty
-        self.trait4 = klass.empty
-        self.trait5 = klass.empty
-        self.trait6 = klass.empty
+        self.traits = {'Trait 1' : klass.empty, 'Trait 2' : klass.empty, 'Trait 3' : klass.empty, 'Trait 4' : klass.empty, 'Trait 5' : klass.empty, 'Trait 6' : klass.empty}
 
 # Perform the initial setup.
 def initial_setup():
@@ -60,7 +55,10 @@ def initial_setup():
         print('11. Bandit')
         print('12. Gunslinger')
         print('99. Doppelganger')
-        choice = int(input('>'))
+        try:
+            choice = int(input('>'))
+        except:
+            print('Please input a number!')
 
         match choice:
             case 1:
@@ -130,7 +128,7 @@ def change_equip():
         try:
             choice = int(input('>'))
         except:
-            input('Please input a number!')
+            print('Please input a number!')
 
         if choice not in [1, 2, 3, 4, 5, 6]:
                 input('Please input a correct option!')
@@ -232,27 +230,27 @@ def change_trait():
                 try:
                     choice = int(input('1-6 >'))
                 except:
-                    input('Please input a number!')
+                    print('Please input a number!')
                     line_operations.delete_last_line()
 
                 match choice:
                     case 1:
-                        player.trait1 = allitems[name]
+                        player.traits['Trait 1'] = allitems[name]
                         return
                     case 2:
-                        player.trait2 = allitems[name]
+                        player.traits['Trait 2'] = allitems[name]
                         return
                     case 3:
-                        player.trait3 = allitems[name]
+                        player.traits['Trait 3'] = allitems[name]
                         return
                     case 4:
-                        player.trait4 = allitems[name]
+                        player.traits['Trait 4'] = allitems[name]
                         return
                     case 5:
-                        player.trait5 = allitems[name]
+                        player.traits['Trait 5'] = allitems[name]
                         return
                     case 6:
-                        player.trait6 = allitems[name]
+                        player.traits['Trait 6'] = allitems[name]
                         return
                     case _:
                         input('Please input a correct option!')
@@ -263,9 +261,9 @@ def change_trait():
 # Let the user change one of their stats
 def change_stats():
     choice = 0
-    line_operations.cls()
 
     while True:
+        line_operations.cls()
         print('Which stat do you want to change?')
         print('1. STR')
         print('2. DEX')
@@ -274,7 +272,7 @@ def change_stats():
         try:
             choice = int(input('>'))
         except:
-            input('Please input a number!')
+            print('Please input a number!')
 
         match choice:
             case 1:
@@ -296,15 +294,14 @@ def change_stats():
                     input('Not a number! Returning to menu...')
                 return
             case _:
-                line_operations.cls()
-                print('Please input a correct option!')
+                input('Please input a correct option!')
 
 # Let the user change one of their counters
 def change_counters():
     choice = 0
-    line_operations.cls()
 
     while True:
+        line_operations.cls()
         print('Which counter do you want to change?')
         print('1. Hearts')
         print('2. Soul Hearts')
@@ -316,7 +313,7 @@ def change_counters():
         try:
             choice = int(input('>'))
         except:
-            input('Please input a number!')
+            print('Please input a number!')
         
         match choice:
             case 1:
@@ -386,14 +383,13 @@ def change_counters():
                 player.weaponstacks = choice
                 return
             case _:
-                line_operations.cls()
-                print('Please input a correct option!')
+                input('Please input a correct option!')
 
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
     player.stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, \
+    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, 'manabonusinc': 0.0, \
     'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
 
     # Calculate stat bonuses
@@ -453,53 +449,14 @@ def calculate_stats():
                     player.stats[stat] += player.accessory.stats[stat]
                 break
 
-    # Add Trait 1 Stats
-    if player.trait1.name != 'Empty':
-        for condition in player.trait1.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait1.stats:
-                    player.stats[stat] += player.trait1.stats[stat]
-                break
-
-    # Add Trait 2 Stats
-    if player.trait2.name != 'Empty':
-        for condition in player.trait2.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait2.stats:
-                    player.stats[stat] += player.trait2.stats[stat]
-                break
-
-    # Add Trait 3 Stats
-    if player.trait3.name != 'Empty':
-        for condition in player.trait3.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait3.stats:
-                    player.stats[stat] += player.trait3.stats[stat]
-                break
-
-    # Add Trait 4 Stats
-    if player.trait4.name != 'Empty':
-        for condition in player.trait4.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait4.stats:
-                    player.stats[stat] += player.trait4.stats[stat]
-                break
-
-    # Add Trait 5 Stats
-    if player.trait5.name != 'Empty':
-        for condition in player.trait5.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait5.stats:
-                    player.stats[stat] += player.trait5.stats[stat]
-                break
-
-    # Add Trait 6 Stats
-    if player.trait6.name != 'Empty':
-        for condition in player.trait6.conditions:
-            if condition in player.weapon.types:
-                for stat in player.trait6.stats:
-                    player.stats[stat] += player.trait6.stats[stat]
-                break
+    # Add Trait Stats
+    for trait in player.traits:
+        if player.traits[trait].name != 'Empty':
+            for condition in player.traits[trait].conditions:
+                if condition in player.weapon.types:
+                    for stat in player.traits[trait].stats:
+                        player.stats[stat] += player.traits[trait].stats[stat]
+                    break
 
     # Calculate Player's Hearts, Soul Hearts, Armor, and Mana
     player.stats['hitpoints'] += player.hitpointsinc
@@ -510,6 +467,16 @@ def calculate_stats():
     calculate_nonstandardmods()
     calculate_traits()
     calculate_passives()
+
+    # Calculate Mana Damage Bonus
+    manaincdmg = 0.05 * (1 + player.stats['manabonusinc'])
+    if 'Magical' in player.weapon.types:
+        player.stats['incdmg'] += player.stats['mana'] * manaincdmg
+    elif 'Elemental' in player.weapon.types:
+        for trait in player.traits:
+            if player.traits[trait].name == 'Power Of Nature':
+                player.stats['incdmg'] += player.stats['mana'] * manaincdmg
+                break
 
     # Calculate Reload Speed based on DEX
     player.stats['relspd'] += 0.25 * player.dexterity
@@ -555,7 +522,7 @@ def calculate_nonstandardmods():
         
 # Calculate Traits
 def calculate_traits():
-    if player.trait1.name == 'Agility' or player.trait2.name == 'Agility' or player.trait3.name == 'Agility' or player.trait4.name == 'Agility' or player.trait5.name == 'Agility' or player.trait6.name == 'Agility':
+    if 'agility' in player.traits:
         player.stats['attspd'] += player.stats['movespeedinc']
 
 # Calculate player's DPS
@@ -616,11 +583,17 @@ def calculate_dps():
 
 # Display all the information
 def main_loop():
-    line_operations.cls()
     choice = 0
     
     calculate_stats()
     calculate_dps()
+
+    trait1 = player.traits['Trait 1'].name
+    trait2 = player.traits['Trait 2'].name
+    trait3 = player.traits['Trait 3'].name
+    trait4 = player.traits['Trait 4'].name
+    trait5 = player.traits['Trait 5'].name
+    trait6 = player.traits['Trait 6'].name
 
     weptypes = '/'.join(player.weapon.types[:-1])
     playhp = player.stats['hitpoints']
@@ -632,6 +605,7 @@ def main_loop():
     playadddmg = player.stats['adddmg']
     playbonusdmg = player.stats['bonusdmg']
     playdmginc = format(player.stats['incdmg'], '.0%')
+
     mspd = format(player.stats['movespeedinc'], '.0%')
     aspd = format(player.stats['attspd'], '.0%')
     refc = format(player.stats['refire'], '.0%')
@@ -639,36 +613,41 @@ def main_loop():
     critd = format(player.stats['critmulti'], '.0%')
 
     while True:
+        line_operations.cls()
+
         print(f'{"CURRENT GEAR":50s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
 
         print(f'{"------------":50s}\t{"-----":70s}\t{"------":35s}\t---')
 
         if player.modifier.name == 'Empty':
-            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
+            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
         else:
-            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {player.trait1.name}":35s}\tDPS (Main hits)')
+            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
 
-        print(f'Types: {weptypes:45s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {player.trait2.name}":35s}\t{format(maindps, ".2f")}')
+        print(f'Types: {weptypes:45s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {trait2}":35s}\t{format(maindps, ".2f")}')
 
         if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types and (('Bow' or 'Crossbow') in player.offhand.conditions or player.offhand.name == 'Empty')):
-            print(f'Offhand: {player.offhand.name:40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')        
+            print(f'Offhand: {player.offhand.name:40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')        
         else:
-            print(f'Offhand: {f"{player.offhand.name} (Inactive - 2H Weapon Equipped.)":40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {player.trait3.name}":35s}\tDPS (DOT)')
+            print(f'Offhand: {f"{player.offhand.name} (Inactive - 2H Weapon Equipped.)":40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')
 
         print(f'Helmet: {player.helmet.name:40s}\t{f"DMG INC%: {playdmginc} | ADD DMG: {playadddmg} | BONUS DMG: {playbonusdmg}":70s}\t{f"------":35s}\t{format(dotdps, ".2f")}')
         
-        print(f'Body: {player.body.name:45s}\t{f"ATT SPD%: {aspd} | REFIRE%: {refc}":70s}\t{f"Trait 4: {player.trait4.name}":35s}\t{f"---"}')
+        print(f'Body: {player.body.name:45s}\t{f"ATT SPD%: {aspd} | REFIRE%: {refc}":70s}\t{f"Trait 4: {trait4}":35s}\t{f"---"}')
         
-        print(f'Boots: {player.boots.name:45s}\t{f"CRIT%: {critc} | CRIT MULTI%: {critd}":70s}\t{f"Trait 5: {player.trait5.name}":35s}\tDPS (Total)')
+        print(f'Boots: {player.boots.name:45s}\t{f"CRIT%: {critc} | CRIT MULTI%: {critd}":70s}\t{f"Trait 5: {trait5}":35s}\tDPS (Total)')
         
-        print(f'Accessory: {player.accessory.name:40s}\t{f"MOVE SPD (INC%): {playmspd} (+{mspd})":70s}\t{f"Trait 6: {player.trait6.name}":35s}\t{format(totaldps, ".2f")}\n')
+        print(f'Accessory: {player.accessory.name:40s}\t{f"MOVE SPD (INC%): {playmspd} (+{mspd})":70s}\t{f"Trait 6: {trait6}":35s}\t{format(totaldps, ".2f")}\n')
 
         print('OPTIONS')
         print('1. Change Stats')
         print('2. Change Equipment')
         print('3. Add or Change a Trait')
         print('4. Change counters')
-        choice = int(input('>'))
+        try:
+            choice = int(input('>'))
+        except:
+            print('Please input a number!')
 
         match choice:
             case 1:
@@ -684,8 +663,7 @@ def main_loop():
                 change_counters()
                 break
             case _:
-                line_operations.cls()
-                print('Please input a correct option!')
+                input('Please input a correct option!')
 
 # Main program
 def Main():
