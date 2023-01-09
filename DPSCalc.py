@@ -522,8 +522,10 @@ def calculate_nonstandardmods():
         
 # Calculate Traits
 def calculate_traits():
-    if 'agility' in player.traits:
-        player.stats['attspd'] += player.stats['movespeedinc']
+    for trait in player.traits:
+        if player.traits[trait].name == 'Agility':
+            player.stats['attspd'] += player.stats['movespeedinc']
+        break
 
 # Calculate player's DPS
 def calculate_dps():
