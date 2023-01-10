@@ -74,9 +74,8 @@ def initial_setup():
                 klass = allitems['ranger']
                 break
             case 5:
-                input('Not available right now.')
-                '''klass = allitems['sorcerer']
-                break'''
+                klass = allitems['sorcerer']
+                break
             case 6:
                 klass = allitems['wanderer']
                 break
@@ -87,13 +86,11 @@ def initial_setup():
                 klass = allitems['thief']
                 break
             case 9:
-                input('Not available right now.')
-                '''klass = allitems['pyromancer']
-                break'''
+                klass = allitems['pyromancer']
+                break
             case 10:
-                input('Not available right now.')
-                '''klass = allitems['cleric']
-                break'''
+                klass = allitems['cleric']
+                break
             case 11:
                 klass = allitems['bandit']
                 break
