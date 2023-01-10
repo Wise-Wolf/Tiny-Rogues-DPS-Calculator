@@ -507,9 +507,9 @@ def calculate_passives():
     if player.klass == 'Knight':
         player.stats['incdmg'] += 0.08 * player.stats['armor']
 
-    '''if player.klass == 'Pyromancer':
-        if player.weapon.types['Fire'] == 1:
-            player.burnup += 1'''
+    if player.klass == 'Pyromancer':
+        if 'Fire' in player.weapon.types:
+            player.stats['burnup'] += 1
 
 # Calculate non-standard modifiers
 def calculate_nonstandardmods():
