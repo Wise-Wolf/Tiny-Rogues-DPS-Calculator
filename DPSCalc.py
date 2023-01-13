@@ -1,9 +1,15 @@
-import line_operations, math, load_data
+import line_operations
+import math
+import load_data
+
 
 class Player:
-    stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, 'manabonusinc': 0.0, \
-    'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
+    stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 
+            'movespeed': 7.5, 'movespeedinc': 0.0, 'attspd': 1.01, 'relspd': 1.0, 'refire': 0.0, 
+            'critchance': 0.05, 'critmulti': 2.0, 'incdmg': 0.0, 'adddmg': 0, 'bonusdmg': 0, 
+            'arbreak': 0.0, 'shock': 0.0, 'strprof': 0.0, 'dexprof': 0.0, 'intprof': 0.0, 'manabonusinc': 0.0, 
+            'dotup': 0.0, 'burnup': 0.0, 'bleedup': 0.0, 'poisonup': 0.0, 'frostup': 0.0, 
+            'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
 
     gold = 0
     weaponstacks = 0
@@ -26,7 +32,9 @@ class Player:
         self.boots = klass.boots
         self.accessory = klass.accessory
         self.modifier = klass.empty
-        self.traits = {'Trait 1' : klass.empty, 'Trait 2' : klass.empty, 'Trait 3' : klass.empty, 'Trait 4' : klass.empty, 'Trait 5' : klass.empty, 'Trait 6' : klass.empty}
+        self.traits = {'Trait 1': klass.empty, 'Trait 2': klass.empty, 'Trait 3': klass.empty, 
+                       'Trait 4': klass.empty, 'Trait 5': klass.empty, 'Trait 6': klass.empty}
+
 
 # Perform the initial setup.
 def initial_setup():
@@ -105,6 +113,7 @@ def initial_setup():
     
     global player
     player = Player(klass)
+
 
 # Let the user change a piece of their equipment
 def change_equip():
@@ -207,6 +216,7 @@ def change_equip():
                                 player.accessory = allitems[name]
                             return
 
+
 # Let the user add or change a Trait
 def change_trait():
     choice = 0
@@ -255,6 +265,7 @@ def change_trait():
                         line_operations.delete_last_line()
                         line_operations.delete_last_line()
                 
+
 # Let the user change one of their stats
 def change_stats():
     choice = 0
@@ -292,6 +303,7 @@ def change_stats():
                 return
             case _:
                 input('Please input a correct option!')
+
 
 # Let the user change one of their counters
 def change_counters():
@@ -382,12 +394,16 @@ def change_counters():
             case _:
                 input('Please input a correct option!')
 
+
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
-    player.stats = {'hitpoints':2, 'soulhearts':0, 'armor':0, 'stamina':2, 'mana':2, 'movespeed':7.5, 'movespeedinc':0.0, 'attspd':1.01, 'relspd':1.0, 'refire':0.0, \
-    'critchance':0.05, 'critmulti':2.0, 'incdmg':0.0, 'adddmg':0, 'bonusdmg':0, 'arbreak':0.0, 'shock':0.0, 'strprof':0.0, 'dexprof':0.0, 'intprof':0.0, 'manabonusinc': 0.0, \
-    'dotup':0.0, 'burnup':0.0, 'bleedup':0.0, 'poisonup':0.0, 'frostup':0.0, 'dotrateup':0.0, 'burnrateup':0.0, 'bleedrateup':0.0, 'poisonrateup':0.0, 'frostrateup':0.0}
+    player.stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 
+            'movespeed': 7.5, 'movespeedinc': 0.0, 'attspd': 1.01, 'relspd': 1.0, 'refire': 0.0, 
+            'critchance': 0.05, 'critmulti': 2.0, 'incdmg': 0.0, 'adddmg': 0, 'bonusdmg': 0, 
+            'arbreak': 0.0, 'shock': 0.0, 'strprof': 0.0, 'dexprof': 0.0, 'intprof': 0.0, 'manabonusinc': 0.0, 
+            'dotup': 0.0, 'burnup': 0.0, 'bleedup': 0.0, 'poisonup': 0.0, 'frostup': 0.0, 
+            'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
 
     # Calculate stat bonuses
     player.stats['hitpoints'] += player.strength // 10
@@ -493,6 +509,7 @@ def calculate_stats():
     if player.stats['shock'] > 0.24:
         player.stats['shock'] = 0.24
 
+
 # Calculate passives
 def calculate_passives():
     if player.klass == 'Deprived':
@@ -511,18 +528,21 @@ def calculate_passives():
         if 'Fire' in player.weapon.types:
             player.stats['burnup'] += 1
 
+
 # Calculate non-standard modifiers
 def calculate_nonstandardmods():
     if player.boots.name == 'Peg Leg':
         player.stats['movespeedinc'] += player.stats['gold'] * 0.005
         player.stats['movespeed'] = 7.5 * (1 + player.stats['movespeedinc'])
-        
+
+
 # Calculate Traits
 def calculate_traits():
     for trait in player.traits:
         if player.traits[trait].name == 'Agility':
             player.stats['attspd'] += player.stats['movespeedinc']
         break
+
 
 # Calculate player's DPS
 def calculate_dps():
@@ -534,20 +554,22 @@ def calculate_dps():
     totaldps = 0
 
     # Main DPS calculation
-    avgdmg = (player.weapon.mindmg + player.weapon.maxdmg) / 2 # Get average damage
-    hitdmg = avgdmg + player.stats['adddmg'] # Add Base Damage Bonuses
-    hitdmg *= (1 + (player.weapon.uptier * player.weapon.uplevel)) # Add Upgrade Damage Bonuses
-    hitdmg *= (1 + (player.strength * (player.weapon.strsc + player.stats['strprof'])) + (player.dexterity * (player.weapon.dexsc + player.stats['dexprof'])) + \
-    (player.intelligence * (player.weapon.intsc + player.stats['intprof']))) # Add Scaling Damage Bonuses
-    hitdmg *= 1 + player.stats['incdmg'] # Add Increased Damage %
-    hitdmg += player.stats['bonusdmg'] # Add Bonus Damage
-    critbonus = 1 - player.stats['critchance'] + player.stats['critchance'] * player.stats['critmulti'] # Calculate Crit Bonus
-    critdmg = hitdmg * critbonus # Calculate Average Hit taking into account Criticals
-    finaldmg = critdmg * (1 + player.stats['arbreak'] + player.stats['shock']) # Calculate the amount of damage done to Armor Broken/Shocked enemies
-    generalaps = player.weapon.aps * player.stats['attspd'] # Calculate the amount of shots fired per second
-    reloadingtime = player.weapon.relspd * player.stats['relspd'] # Calculate the amount of time spent reloading
-    attackinterval = 1 / generalaps # Calculate the Attack Interval
-    adjustedaps = player.weapon.capacity / (player.weapon.capacity * attackinterval + max(0, (reloadingtime - attackinterval) * math.ceil((math.pi * reloadingtime) % 1))) # Calculate the Adjusted APS
+    avgdmg = (player.weapon.mindmg + player.weapon.maxdmg) / 2  # Get average damage
+    hitdmg = avgdmg + player.stats['adddmg']  # Add Base Damage Bonuses
+    hitdmg *= (1 + (player.weapon.uptier * player.weapon.uplevel))  # Add Upgrade Damage Bonuses
+    hitdmg *= (1 + (player.strength * (player.weapon.strsc + player.stats['strprof'])) + 
+                (player.dexterity * (player.weapon.dexsc + player.stats['dexprof'])) + 
+                (player.intelligence * (player.weapon.intsc + player.stats['intprof'])))  # Add Scaling Damage Bonuses
+    hitdmg *= 1 + player.stats['incdmg']  # Add Increased Damage %
+    hitdmg += player.stats['bonusdmg']  # Add Bonus Damage
+    critbonus = 1 - player.stats['critchance'] + player.stats['critchance'] * player.stats['critmulti']  # Calculate Crit Bonus
+    critdmg = hitdmg * critbonus  # Calculate Average Hit taking into account Criticals
+    finaldmg = critdmg * (1 + player.stats['arbreak'] + player.stats['shock'])  # Calculate the amount of damage done to Armor Broken/Shocked enemies
+    generalaps = player.weapon.aps * player.stats['attspd']  # Calculate the amount of shots fired per second
+    reloadingtime = player.weapon.relspd * player.stats['relspd']  # Calculate the amount of time spent reloading
+    attackinterval = 1 / generalaps  # Calculate the Attack Interval
+    adjustedaps = player.weapon.capacity / (player.weapon.capacity * attackinterval + 
+                    max(0, (reloadingtime - attackinterval) * math.ceil((math.pi * reloadingtime) % 1)))  # Calculate the Adjusted APS
 
     maindps = adjustedaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg  # Calculate the basic hit DPS
 
@@ -579,6 +601,7 @@ def calculate_dps():
 
     # Total DPS calculation
     totaldps = maindps + dotdps
+
 
 # Display all the information
 def main_loop():
@@ -664,11 +687,13 @@ def main_loop():
             case _:
                 input('Please input a correct option!')
 
+
 # Main program
 def Main():
     initial_setup()
     while True:
         main_loop()
+
 
 # Run the main program
 Main()

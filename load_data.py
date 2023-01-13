@@ -1,6 +1,7 @@
 from __future__ import print_function
 
-import os.path, json
+import os.path
+import json
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -9,7 +10,9 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 class Klass:
-    def __init__(self, name, itemempty, strength, dexterity, intelligence, weapon, helmet, body, boots, offhand, accessory):
+    def __init__(self, name, itemempty, strength, dexterity, intelligence, 
+                weapon, helmet, body, boots, offhand, accessory):
+
         self.name = name
         
         self.strength = strength
@@ -29,7 +32,10 @@ class Klass:
 class Weapon:
     slot = 'Weapon'
 
-    def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, specialdotdmg, dottickrate, types = ['Unconditional'], stats = {}):
+    def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, 
+                capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, specialdotdmg, dottickrate, 
+                types = ['Unconditional'], stats = {}):
+
         self.name = name
         self.uptier = uptier
         self.uplevel = uplevel
@@ -84,8 +90,10 @@ def parse_weapons():
             newdict = {}
         # 0:name, 1:uptier, 2:strsc, 3:dexsc, 4:intsc, 5:mindmg, 6:maxdmg, 7:aps, 8:shots, 9:capacity, 10:relspd
         # 11:burndmg, 12:bleeddmg, 13:poisondmg, 14:frostdmg, 15:specialdotdmg, 16:dottickrate, 17:types, 18:stats
-        instance = klass(row[0], float(row[1]), 0, float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]), float(row[7]), float(row[8]), int(row[9]), float(row[10]), \
-        float(row[11]), float(row[12]), float(row[13]), float(row[14]), float(row[15]), float(row[16]), row[17].split(', '), newdict)
+        instance = klass(row[0], float(row[1]), 0, float(row[2]), float(row[3]), float(row[4]), float(row[5]), 
+                        float(row[6]), float(row[7]), float(row[8]), int(row[9]), float(row[10]), 
+                        float(row[11]), float(row[12]), float(row[13]), float(row[14]), float(row[15]), 
+                        float(row[16]), row[17].split(', '), newdict)
         allitems[instance.name.lower()] = instance
 
 # Parse Item Data
