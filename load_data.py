@@ -9,6 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+
 class Klass:
     def __init__(self, name, itemempty, strength, dexterity, intelligence, 
                 weapon, helmet, body, boots, offhand, accessory):
@@ -28,6 +29,7 @@ class Klass:
         self.empty = itemempty
 
         self.weapon = weapon
+
 
 class Weapon:
     slot = 'Weapon'
@@ -57,12 +59,14 @@ class Weapon:
         self.types = types
         self.stats = stats
 
+
 class Item:
     def __init__(self, slot, name, conditions = ['Unconditional'], stats = {}):
         self.slot = slot
         self.name = name
         self.conditions = conditions
         self.stats = stats
+
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SPREADSHEET_ID = '1QyCWcp8wB7kwCERdsyhKvFfqab2mn8ZgGUmUJq407Yw'
@@ -96,6 +100,7 @@ def parse_weapons():
                         float(row[16]), row[17].split(', '), newdict)
         allitems[instance.name.lower()] = instance
 
+
 # Parse Item Data
 def parse_items():
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=ITEMS, majorDimension='ROWS').execute()
@@ -118,6 +123,7 @@ def parse_items():
     itemempty = Item('Any', 'Empty')
     allitems[itemempty.name.lower()] = itemempty
 
+
 # Parse Trait Data
 def parse_traits():
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=TRAITS, majorDimension='ROWS').execute()
@@ -136,6 +142,7 @@ def parse_traits():
             newdict = {}
         instance = klass(row[3], row[0], row[1].split(', '), newdict)
         allitems[instance.name.lower()] = instance
+
 
 # Parse Modifier Data
 def parse_modifiers():
@@ -156,6 +163,7 @@ def parse_modifiers():
         instance = klass(row[3], row[0], row[1].split(', '), newdict)
         allitems[instance.name.lower()] = instance
 
+
 # Parse Starter Gear for Classes
 def parse_classes():
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=CLASSES, majorDimension='ROWS').execute()
@@ -171,6 +179,7 @@ def parse_classes():
         # name, itemempty, strength, dexterity, intelligence, weapon, helmet = None, body = None, boots = None, offhand = None, accessory = None
         instance = klass(row[0], allitems['empty'], int(row[1]), int(row[2]), int(row[3]), allitems[row[4].lower()], allitems[row[5].lower()], allitems[row[6].lower()], allitems[row[7].lower()], allitems[row[8].lower()], allitems[row[9].lower()])
         allitems[instance.name.lower()] = instance
+
 
 def parse_data():
     creds = None
@@ -208,6 +217,7 @@ def parse_data():
     parse_classes()
 
     return allitems
+
 
 if __name__ == '__main__':
     parse_data()
