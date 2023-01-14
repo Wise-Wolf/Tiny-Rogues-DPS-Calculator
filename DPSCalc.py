@@ -482,13 +482,13 @@ def calculate_stats():
     calculate_passives()
 
     # Calculate Mana Damage Bonus
-    manaincdmg = 0.05 * (1 + player.stats['manabonusinc'])
+    manaincdmg = 0.005 * (1 + player.stats['manabonusinc'])
     if 'Magic' in player.weapon.types:
-        player.stats['incdmg'] += player.stats['mana'] * manaincdmg
+        player.stats['incdmg'] += (player.stats['mana'] * 20) * manaincdmg
     elif 'Elemental' in player.weapon.types:
         for trait in player.traits:
             if player.traits[trait].name == 'Power Of Nature':
-                player.stats['incdmg'] += player.stats['mana'] * manaincdmg
+                player.stats['incdmg'] += (player.stats['mana'] * 20) * manaincdmg
                 break
 
     # Calculate Reload Speed based on DEX
