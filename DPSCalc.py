@@ -402,7 +402,7 @@ def calculate_stats():
             'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
     
     player.extratypes = []
-
+    
     # Calculate item modifiers
     # ------------------------
     # Add Weapon Stats
@@ -519,6 +519,17 @@ def calculate_stats():
         player.stats['shock'] *= 1.5
 
 
+def initial_special_cases():
+    if player.klass == 'Pyromancer':
+        player.extratypes.append('Fire')
+    
+    if (player.offhand.name == 'Enchanted Quiver') and (('Bow' or 'Crossbow') in player.weapon.types):
+        player.extratypes.append('Fire')
+    
+    elif (player.offhand.name == 'Torch') and ('Melee' in player.weapon.types) and ('Two-handed' not in player.weapon.types):
+        player.extratypes.append('Fire')
+
+
 # Calculate passives
 def calculate_passives():
     if player.klass == 'Deprived':
@@ -624,9 +635,6 @@ def calculate_nonstandardmods():
                     player.stats['incdmg'] -= counter * 0.1
                     counter = 0
 
-                # elif player.boots.name == 'Red Heels':
-                    # When you dash, gain +10 dexterity for 4 seconds.
-
                 elif player.boots.name == 'Peg Leg':
                     player.stats['movespeedinc'] += min(player.gold * 0.01, 0.5)
                     player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
@@ -638,12 +646,8 @@ def calculate_nonstandardmods():
             for condition in player.offhand.conditions:
                 if condition in (player.weapon.types or player.extratypes):
 
-                    if player.offhand.name == 'Enchanted Quiver':
-                        player.extratypes.append('Fire')
-                    
-                    elif player.offhand.name == 'Torch':
-                        player.extratypes.append('Fire')
-                        # Add burn to current weapon.
+                    if player.offhand.name == 'Torch':
+                        player.stats['burndmg'] += 0.6
                         
                     elif player.offhand.name == 'Spiked Shield':
                         player.stats['bonusdmg'] += player.stats['armor'] * 50
@@ -668,9 +672,6 @@ def calculate_nonstandardmods():
                 
                 if player.accessory.name == 'Amazon Bracelet':
                     player.stats['adddmg'] += player.dexterity * 3
-                
-                # elif player.accessory.name == 'Power Belt':
-                    # +20 to strength
                 
                 elif player.accessory.name == 'Stoneplate Ring':
                     player.stats['movespeedinc'] -= player.stats['armor'] * 0.05
