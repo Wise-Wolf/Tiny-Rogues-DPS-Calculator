@@ -480,6 +480,10 @@ def calculate_stats():
     player.stats['armor'] += player.armorinc
     player.stats['mana'] += player.manainc
 
+    for trait in player.traits:
+        if player.traits[trait].name == 'No Pain No Gain':
+                player.stats['armor'] = 0
+
     calculate_nonstandardmods()
     calculate_traits()
     calculate_passives()
@@ -678,10 +682,25 @@ def calculate_nonstandardmods():
 # Calculate Traits
 def calculate_traits():
     for trait in player.traits:
-        if player.traits[trait].name == 'Agility':
-            player.stats['attspd'] += player.stats['movespeedinc']
-        break
+        
+        if player.traits[trait].name == 'Barbarism':
+            if player.stats['armor'] == 0:
+                player.stats['incdmg'] += 0.25
+        
+        elif player.traits[trait].name == 'Bloodthirsty':
+            if player.weapon.bleeddmg > 0:  # Add bleed from extraneous sources
+                player.stats['incdmg'] += 0.25
 
+        # elif player.traits[trait].name == 'Blunt Trauma':
+            # if ('Mace') or ('Flail') in player.weapon.types:
+                # Add Bleed
+
+        # elif player.traits[trait].name == 'Ruthless':
+            # Every 3rd primary attack deals double damage. (Add 33% shots per attack maybe)
+
+        elif player.traits[trait].name == 'Agility':
+            player.stats['attspd'] += player.stats['movespeedinc']
+            player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
 
 # Calculate player's DPS
 def calculate_dps():
