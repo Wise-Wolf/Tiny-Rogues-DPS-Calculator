@@ -18,6 +18,7 @@ class Player:
     soulheartsinc = 0
     armorinc = 0
     manainc = 0
+    extratypes = []
 
     # Inherit values from the chosen class
     def __init__(self, klass):
@@ -404,6 +405,8 @@ def calculate_stats():
             'arbreak': 0.0, 'shock': 0.0, 'strprof': 0.0, 'dexprof': 0.0, 'intprof': 0.0, 'manabonusinc': 0.0, 
             'dotup': 0.0, 'burnup': 0.0, 'bleedup': 0.0, 'poisonup': 0.0, 'frostup': 0.0, 
             'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
+    
+    player.extratypes = []
 
     # Calculate stat bonuses
     player.stats['hitpoints'] += player.strength // 10
@@ -505,9 +508,11 @@ def calculate_stats():
     if player.stats['arbreak'] > 0.25:
         player.stats['arbreak'] = 0.25
     
-    # Cap Shock at 24%
+    # Cap Shock at 24% unless equipped with Topaz Ring
     if player.stats['shock'] > 0.24:
         player.stats['shock'] = 0.24
+    if player.accessory.name == 'Topaz Ring':
+        player.stats['shock'] *= 1.5
 
 
 # Calculate passives
@@ -531,10 +536,144 @@ def calculate_passives():
 
 # Calculate non-standard modifiers
 def calculate_nonstandardmods():
-    if player.boots.name == 'Peg Leg':
-        player.stats['movespeedinc'] += player.stats['gold'] * 0.005
-        player.stats['movespeed'] = 7.5 * (1 + player.stats['movespeedinc'])
+    choice = 0
+    counter = 0
 
+    # Weapons
+    if player.weapon.name == 'Demon Blade':
+        player.stats['attspd'] += player.weaponstacks * 0.15
+    
+    elif player.weapon.name == 'The Hungry Blade':
+        player.stats['critmulti'] += player.weaponstacks * 0.5
+
+    elif player.weapon.name == 'Zweihander':
+        player.stats['adddmg'] += player.strength * 5
+
+    elif player.weapon.name == 'Outstanding Money Gun':
+        player.stats['adddmg'] += player.gold * 1
+    
+    elif player.weapon.name == 'Ex Mortis':
+        player.stats['incdmg'] += player.weaponstacks * 0.2
+
+    elif player.weapon.name == 'Unholy Bible':
+        player.stats['attspd'] += player.weaponstacks * 0.1
+
+    # Armor
+    if player.helmet.name != 'Empty':
+        for condition in player.helmet.conditions:
+            if condition in (player.weapon.types or player.extratypes):
+    
+                if player.helmet.name == 'Gladiator Helmet':
+                    player.stats['incdmg'] += player.stats['hitpoints'] * 0.05
+                
+                elif player.helmet.name == 'Bear Pelt':
+                    player.stats['adddmg'] += player.strength * 3
+
+                elif player.helmet.name == 'Big Brain Helmet':
+                    player.stats['critchance'] += player.intelligence * 0.01
+                
+                elif player.helmet.name == 'Power Scouter':
+                    player.stats['bonusdmg'] += 1000
+                
+                elif player.helmet.name == 'Sophisticated Headgear':
+                    choice = player.weapon.uptier
+                    match choice:
+                        case 0.16:
+                            player.stats['adddmg'] += 10
+                        case 0.13:
+                            player.stats['adddmg'] += 20
+                        case 0.1:
+                            player.stats['adddmg'] += 30
+                        case 0.07:
+                            player.stats['adddmg'] += 40
+                        case 0.06:
+                            player.stats['adddmg'] += 50
+
+                # elif player.helmet.name == 'Bishop Hat':
+                    # You deal holy damage and inflict Judgement. Stacks up to 3 times. Inflicts 50% bonus DMG on reaching max stacks.
+
+                break
+    
+    if player.body.name != 'Empty':
+        for condition in player.body.conditions:
+            if condition in (player.weapon.types or player.extratypes):
+
+                if player.body.name == 'Hero Cape':
+                    player.stats['bonusdmg'] += player.armorstacks * 25
+
+                elif player.body.name == 'Poncho':
+                    player.stats['incdmg'] += player.stats['stamina'] * 0.05
+
+                # elif player.body.name == 'Lab Coat':
+                    # Gain 10% increased damage per potion effect on you.
+            
+                break
+
+    if player.boots.name != 'Empty':
+        for condition in player.boots.conditions:
+            if condition in (player.weapon.types or player.extratypes):
+
+                if player.boots.name == 'Apprentice Boots':
+                    for trait in player.traits:
+                        if player.traits[trait].name != 'Empty':
+                            counter += 1
+                    player.stats['incdmg'] -= counter * 0.1
+                    counter = 0
+
+                # elif player.boots.name == 'Red Heels':
+                    # When you dash, gain +10 dexterity for 4 seconds.
+
+                elif player.boots.name == 'Peg Leg':
+                    player.stats['movespeedinc'] += min(player.gold * 0.01, 0.5)
+                    player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
+                
+                break
+
+    if player.offhand.name != 'Empty':
+        if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types):
+            for condition in player.offhand.conditions:
+                if condition in (player.weapon.types or player.extratypes):
+
+                    if player.offhand.name == 'Enchanted Quiver':
+                        player.extratypes.append('Fire')
+                    
+                    elif player.offhand.name == 'Torch':
+                        player.extratypes.append('Fire')
+                        # Add burn to current weapon.
+                        
+                    elif player.offhand.name == 'Spiked Shield':
+                        player.stats['bonusdmg'] += player.stats['armor'] * 50
+                    
+                    # elif player.offhand.name == 'Seths Walking Stick':
+                        # Each stack of Tipsiness also grants 5% increased attack and movement speed.
+                    
+                    elif player.offhand.name == 'Soul Lantern':
+                        player.stats['incdmg'] += player.stats['soulhearts'] * 0.05
+                    
+                    elif player.offhand.name == 'Dragonscale Shield':
+                        player.stats['incdmg'] += player.stats['armor'] * 0.05
+
+                    break
+    
+    if player.accessory.name != 'Empty':
+        for condition in player.accessory.conditions:
+            if condition in (player.weapon.types or player.extratypes):
+
+                # if player.accessory.name == 'Cursebite Ring':
+                    # Deal 10% increased damage per Curse on you.
+                
+                if player.accessory.name == 'Amazon Bracelet':
+                    player.stats['adddmg'] += player.dexterity * 3
+                
+                # elif player.accessory.name == 'Power Belt':
+                    # +20 to strength
+                
+                elif player.accessory.name == 'Stoneplate Ring':
+                    player.stats['movespeedinc'] -= player.stats['armor'] * 0.05
+                    player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
+                
+                # elif player.accessory.name == 'The Hand Of Blood':
+                    # Melee Weapons inflict bleed.
 
 # Calculate Traits
 def calculate_traits():
