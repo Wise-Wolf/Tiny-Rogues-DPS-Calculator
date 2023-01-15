@@ -35,8 +35,7 @@ class Weapon:
     slot = 'Weapon'
 
     def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, 
-                capacity, relspd, burndmg, bleeddmg, poisondmg, frostdmg, specialdotdmg, dottickrate, 
-                types = ['Unconditional'], stats = {}):
+                capacity, relspd, types = ['Unconditional'], stats = {}):
 
         self.name = name
         self.uptier = uptier
@@ -50,12 +49,6 @@ class Weapon:
         self.shots = shots
         self.capacity = capacity
         self.relspd = relspd
-        self.burndmg = burndmg
-        self.bleeddmg = bleeddmg
-        self.poisondmg = poisondmg
-        self.frostdmg = frostdmg
-        self.specialdotdmg = specialdotdmg
-        self.dottickrate = dottickrate
         self.types = types
         self.stats = stats
 
@@ -70,7 +63,7 @@ class Item:
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SPREADSHEET_ID = '1QyCWcp8wB7kwCERdsyhKvFfqab2mn8ZgGUmUJq407Yw'
-WEAPONS = 'Weapon Stats!A1:S'
+WEAPONS = 'Weapon Stats!A1:M'
 ITEMS = 'Item Stats!A1:D'
 TRAITS = 'Trait Stats!A1:D'
 MODIFIERS = 'Modifiers!A1:D'
@@ -89,15 +82,13 @@ def parse_weapons():
 
     for row in values[1:]:
         try:
-            newdict = json.loads(row[18])
+            newdict = json.loads(row[12])
         except:
             newdict = {}
-        # 0:name, 1:uptier, 2:strsc, 3:dexsc, 4:intsc, 5:mindmg, 6:maxdmg, 7:aps, 8:shots, 9:capacity, 10:relspd
-        # 11:burndmg, 12:bleeddmg, 13:poisondmg, 14:frostdmg, 15:specialdotdmg, 16:dottickrate, 17:types, 18:stats
+        # 0:name, 1:uptier, 2:strsc, 3:dexsc, 4:intsc, 5:mindmg, 6:maxdmg, 7:aps, 8:shots, 9:capacity, 10:relspd, 11:types, 12:stats
         instance = klass(row[0], float(row[1]), 0, float(row[2]), float(row[3]), float(row[4]), float(row[5]), 
                         float(row[6]), float(row[7]), float(row[8]), int(row[9]), float(row[10]), 
-                        float(row[11]), float(row[12]), float(row[13]), float(row[14]), float(row[15]), 
-                        float(row[16]), row[17].split(', '), newdict)
+                        row[11].split(', '), newdict)
         allitems[instance.name.lower()] = instance
 
 

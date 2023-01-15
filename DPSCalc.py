@@ -4,10 +4,11 @@ import load_data
 
 
 class Player:
-    stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 
+    stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 'strinc': 0, 'dexinc': 0, 'intinc': 0, 
             'movespeed': 7.5, 'movespeedinc': 0.0, 'attspd': 1.01, 'relspd': 1.0, 'refire': 0.0, 
             'critchance': 0.05, 'critmulti': 2.0, 'incdmg': 0.0, 'adddmg': 0, 'bonusdmg': 0, 
             'arbreak': 0.0, 'shock': 0.0, 'strprof': 0.0, 'dexprof': 0.0, 'intprof': 0.0, 'manabonusinc': 0.0, 
+            'burndmg': 0.0, 'bleeddmg': 0.0, 'poisondmg': 0.0, 'frostdmg': 0.0, 'specialdmg': 0.0, 'dottickrate': 1, 
             'dotup': 0.0, 'burnup': 0.0, 'bleedup': 0.0, 'poisonup': 0.0, 'frostup': 0.0, 
             'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
 
@@ -269,41 +270,34 @@ def change_trait():
 
 # Let the user change one of their stats
 def change_stats():
-    choice = 0
+    line_operations.cls()
 
     while True:
-        line_operations.cls()
-        print('Which stat do you want to change?')
-        print('1. STR')
-        print('2. DEX')
-        print('3. INT')
-        
         try:
-            choice = int(input('>'))
+            player.strength = int(input('Input new STR value >'))
+            break
         except:
-            print('Please input a number!')
+            input('Please input a number!')
+            line_operations.delete_last_line()
+            line_operations.delete_last_line()
 
-        match choice:
-            case 1:
-                try:
-                    player.strength = int(input('Input new STR value >'))
-                except:
-                    input('Not a number! Returning to menu...')
-                return
-            case 2:
-                try:
-                    player.dexterity = int(input('Input new DEX value >'))
-                except:
-                    input('Not a number! Returning to menu...')
-                return
-            case 3:
-                try:
-                    player.intelligence = int(input('Input new INT value >'))
-                except:
-                    input('Not a number! Returning to menu...')
-                return
-            case _:
-                input('Please input a correct option!')
+    while True:
+        try:
+            player.dexterity = int(input('Input new DEX value >'))
+            break
+        except:
+            input('Please input a number!')
+            line_operations.delete_last_line()
+            line_operations.delete_last_line()
+
+    while True:
+        try:
+            player.intelligence = int(input('Input new INT value >'))
+            break
+        except:
+            input('Please input a number!')
+            line_operations.delete_last_line()
+            line_operations.delete_last_line()
 
 
 # Let the user change one of their counters
@@ -399,19 +393,15 @@ def change_counters():
 # Calculate player's stats based on their gear and Traits
 def calculate_stats():
     # Initialize stats
-    player.stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 
+    player.stats = {'hitpoints': 2, 'soulhearts': 0, 'armor': 0, 'stamina': 2, 'mana': 2, 'strinc': 0, 'dexinc': 0, 'intinc': 0, 
             'movespeed': 7.5, 'movespeedinc': 0.0, 'attspd': 1.01, 'relspd': 1.0, 'refire': 0.0, 
             'critchance': 0.05, 'critmulti': 2.0, 'incdmg': 0.0, 'adddmg': 0, 'bonusdmg': 0, 
             'arbreak': 0.0, 'shock': 0.0, 'strprof': 0.0, 'dexprof': 0.0, 'intprof': 0.0, 'manabonusinc': 0.0, 
+            'burndmg': 0.0, 'bleeddmg': 0.0, 'poisondmg': 0.0, 'frostdmg': 0.0, 'specialdmg': 0.0, 'dottickrate': 1, 
             'dotup': 0.0, 'burnup': 0.0, 'bleedup': 0.0, 'poisonup': 0.0, 'frostup': 0.0, 
             'dotrateup': 0.0, 'burnrateup': 0.0, 'bleedrateup': 0.0, 'poisonrateup': 0.0, 'frostrateup': 0.0}
     
     player.extratypes = []
-
-    # Calculate stat bonuses
-    player.stats['hitpoints'] += player.strength // 10
-    player.stats['stamina'] += player.dexterity // 10
-    player.stats['mana'] += player.intelligence // 10
 
     # Calculate item modifiers
     # ------------------------
@@ -483,6 +473,16 @@ def calculate_stats():
     for trait in player.traits:
         if player.traits[trait].name == 'No Pain No Gain':
                 player.stats['armor'] = 0
+    
+    # Calculate stats
+    player.strength += player.stats['strinc']
+    player.dexterity += player.stats['dexinc']
+    player.intelligence += player.stats['intinc']
+
+    # Calculate stat bonuses
+    player.stats['hitpoints'] += player.strength // 10
+    player.stats['stamina'] += player.dexterity // 10
+    player.stats['mana'] += player.intelligence // 10
 
     calculate_nonstandardmods()
     calculate_traits()
@@ -679,6 +679,7 @@ def calculate_nonstandardmods():
                 # elif player.accessory.name == 'The Hand Of Blood':
                     # Melee Weapons inflict bleed.
 
+
 # Calculate Traits
 def calculate_traits():
     for trait in player.traits:
@@ -701,6 +702,7 @@ def calculate_traits():
         elif player.traits[trait].name == 'Agility':
             player.stats['attspd'] += player.stats['movespeedinc']
             player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
+
 
 # Calculate player's DPS
 def calculate_dps():
@@ -732,29 +734,29 @@ def calculate_dps():
     maindps = adjustedaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg  # Calculate the basic hit DPS
 
     # DOT DPS calculation
-    if player.weapon.burndmg > 0:
-        burndmg = finaldmg * player.weapon.burndmg * (1 + player.stats['dotup'] + player.stats['burnup'])
-        burntickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
+    if player.stats['burndmg'] > 0:
+        burndmg = finaldmg * player.stats['burndmg'] * (1 + player.stats['dotup'] + player.stats['burnup'])
+        burntickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'] + player.stats['burnrateup'])
         dotdps += burndmg * burntickrate
 
-    if player.weapon.bleeddmg > 0:    
-        bleeddmg = finaldmg * player.weapon.bleeddmg * (1 + player.stats['dotup'] + player.stats['bleedup'])
-        bleedtickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
+    if player.stats['bleeddmg'] > 0:    
+        bleeddmg = finaldmg * player.stats['bleeddmg'] * (1 + player.stats['dotup'] + player.stats['bleedup'])
+        bleedtickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'] + player.stats['bleedrateup'])
         dotdps += bleeddmg * bleedtickrate
 
-    if player.weapon.poisondmg > 0:
-        poisondmg = finaldmg * player.weapon.poisondmg * (1 + player.stats['dotup'] + player.stats['poisonup'])
-        poisontickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
+    if player.stats['poisondmg'] > 0:
+        poisondmg = finaldmg * player.stats['poisondmg'] * (1 + player.stats['dotup'] + player.stats['poisonup'])
+        poisontickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'] + player.stats['poisonrateup'])
         dotdps += poisondmg * poisontickrate
 
-    if player.weapon.frostdmg > 0:
-        frostdmg = finaldmg * player.weapon.frostdmg * (1 + player.stats['dotup'] + player.stats['frostup'])
-        frosttickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'] + player.stats['frostrateup'])
+    if player.stats['frostdmg'] > 0:
+        frostdmg = finaldmg * player.stats['frostdmg'] * (1 + player.stats['dotup'] + player.stats['frostup'])
+        frosttickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'] + player.stats['frostrateup'])
         dotdps += frostdmg * frosttickrate
     
-    if player.weapon.specialdotdmg > 0:
-        specialdotdmg = finaldmg * player.weapon.specialdotdmg * (1 + player.stats['dotup'])
-        specialdottickrate = player.weapon.dottickrate * (1 + player.stats['dotrateup'])
+    if player.stats['specialdmg'] > 0:
+        specialdotdmg = finaldmg * player.stats['specialdmg'] * (1 + player.stats['dotup'])
+        specialdottickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'])
         dotdps += specialdotdmg * specialdottickrate
 
     # Total DPS calculation
