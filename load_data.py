@@ -34,9 +34,10 @@ class Klass:
 class Weapon:
     slot = 'Weapon'
 
-    def __init__(self, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, 
+    def __init__(self, modifier, name, uptier, uplevel, strsc, dexsc, intsc, mindmg, maxdmg, aps, shots, 
                 capacity, relspd, types = ['Unconditional'], stats = {}):
 
+        self.modifier = modifier
         self.name = name
         self.uptier = uptier
         self.uplevel = uplevel
@@ -69,6 +70,7 @@ TRAITS = 'Trait Stats!A1:D'
 MODIFIERS = 'Modifiers!A1:D'
 CLASSES = 'Classes!A1:J'
 
+
 # Parse Weapon Data
 def parse_weapons():
     result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=WEAPONS, majorDimension='ROWS').execute()
@@ -86,7 +88,7 @@ def parse_weapons():
         except:
             newdict = {}
         # 0:name, 1:uptier, 2:strsc, 3:dexsc, 4:intsc, 5:mindmg, 6:maxdmg, 7:aps, 8:shots, 9:capacity, 10:relspd, 11:types, 12:stats
-        instance = klass(row[0], float(row[1]), 0, float(row[2]), float(row[3]), float(row[4]), float(row[5]), 
+        instance = klass(allitems['empty'], row[0], float(row[1]), 0, float(row[2]), float(row[3]), float(row[4]), float(row[5]), 
                         float(row[6]), float(row[7]), float(row[8]), int(row[9]), float(row[10]), 
                         row[11].split(', '), newdict)
         allitems[instance.name.lower()] = instance
@@ -110,9 +112,6 @@ def parse_items():
             newdict = {}
         instance = klass(row[3], row[0], row[1].split(', '), newdict)
         allitems[instance.name.lower()] = instance
-    
-    itemempty = Item('Any', 'Empty')
-    allitems[itemempty.name.lower()] = itemempty
 
 
 # Parse Trait Data
@@ -200,6 +199,8 @@ def parse_data():
 
     global allitems
     allitems = {}
+    itemempty = Item('Any', 'Empty')
+    allitems[itemempty.name.lower()] = itemempty
 
     parse_weapons()
     parse_items()

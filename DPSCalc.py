@@ -28,12 +28,12 @@ class Player:
         self.dexterity = klass.dexterity
         self.intelligence = klass.intelligence
         self.weapon = klass.weapon
+        self.secondaryweapon = klass.empty
         self.offhand = klass.offhand
         self.helmet = klass.helmet
         self.body = klass.body
         self.boots = klass.boots
         self.accessory = klass.accessory
-        self.modifier = klass.empty
         self.traits = {'Trait 1': klass.empty, 'Trait 2': klass.empty, 'Trait 3': klass.empty, 
                        'Trait 4': klass.empty, 'Trait 5': klass.empty, 'Trait 6': klass.empty}
 
@@ -132,13 +132,14 @@ def change_equip():
         print('4. Body')
         print('5. Boots')
         print('6. Accessory')
+        print('7. Secondary Weapon')
 
         try:
             choice = int(input('>'))
         except:
             print('Please input a number!')
 
-        if choice not in [1, 2, 3, 4, 5, 6]:
+        if choice not in [1, 2, 3, 4, 5, 6, 7]:
                 input('Please input a correct option!')
         else:
             while True:
@@ -178,7 +179,7 @@ def change_equip():
                                         line_operations.delete_last_line()
                                         line_operations.delete_last_line()
                                     else:
-                                        player.modifier = allitems[name]
+                                        player.weapon.modifier = allitems[name]
                                         break
 
                             return
@@ -216,6 +217,39 @@ def change_equip():
                                 input('Returning to menu...')
                             else:
                                 player.accessory = allitems[name]
+                            return
+                        case 7:
+                            if allitems[name].slot != 'Weapon':
+                                print('That\'s not a weapon!')
+                                input('Returning to menu...')
+                            else:
+                                player.secondaryweapon = allitems[name]
+
+                                while True:
+                                    try:
+                                        choice = int(input('Input the weapon\'s current upgrade level >'))
+                                        break
+                                    except:
+                                        input('Please input a number!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+
+                                player.secondaryweapon.uplevel = choice
+
+                                while True:
+                                    name = input('Input the weapon\'s modifier >').lower()
+                                    if name not in allitems:
+                                        input('Modifier of this name does not exist!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+                                    elif allitems[name].slot != 'Modifier' and allitems[name].slot != 'Any':
+                                        input('That\'s not a modifier!')
+                                        line_operations.delete_last_line()
+                                        line_operations.delete_last_line()
+                                    else:
+                                        player.secondaryweapon.modifier = allitems[name]
+                                        break
+
                             return
 
 
@@ -412,9 +446,9 @@ def calculate_stats():
         player.stats[stat] += player.weapon.stats[stat]
 
     # Add Modifier Stats
-    if player.modifier.name != 'Empty':
-        for stat in player.modifier.stats:
-            player.stats[stat] += player.modifier.stats[stat]
+    if player.weapon.modifier.name != 'Empty':
+        for stat in player.weapon.modifier.stats:
+            player.stats[stat] += player.weapon.modifier.stats[stat]
 
     # Add Offhand Stats
     if player.offhand.name != 'Empty':
@@ -484,6 +518,7 @@ def calculate_stats():
     player.stats['stamina'] += player.dexterity // 10
     player.stats['mana'] += player.intelligence // 10
 
+    calculate_absolute_stats()
     calculate_passives()
     calculate_dependent_stats()
     
@@ -526,8 +561,6 @@ def calculate_stats():
         player.stats['poisondmg'] = 2.65
     if player.stats['frostdmg'] > 0.6:
         player.stats['frostdmg'] = 0.6
-
-    calculate_absolute_stats()
 
 
 # Check for any extra weapon types
@@ -646,6 +679,12 @@ def calculate_independent_stats():
                     player.stats['bleeddmg'] += 0.6
                 
                 break
+    
+    # Traits
+    for trait in player.traits:
+        if player.traits[trait].name == 'Blunt Trauma':
+            if ('Mace') or ('Flail') in player.weapon.types:
+                player.stats['bleeddmg'] += 0.6
 
 
 # Calculate stats dependent on other stats
@@ -725,9 +764,17 @@ def calculate_dependent_stats():
     
     # Traits
     for trait in player.traits:
+
         if player.traits[trait].name == 'Barbarism':
                 if player.stats['armor'] == 0:
                     player.stats['incdmg'] += 0.25
+
+        elif player.traits[trait].name == 'Bloodthirsty':
+            if player.stats['bleeddmg'] > 0:
+                player.stats['incdmg'] += 0.25
+
+        elif player.traits[trait].name == 'Agility':
+            player.stats['attspd'] += player.stats['movespeedinc']
 
 
 # Calculate passives
@@ -749,34 +796,12 @@ def calculate_passives():
             player.stats['burnup'] += 1
 
 
-# Calculate Traits
-def calculate_traits():
-    for trait in player.traits:
-        
-        if player.traits[trait].name == 'Bloodthirsty':
-            if player.weapon.bleeddmg > 0:  # Add bleed from extraneous sources
-                player.stats['incdmg'] += 0.25
-
-        # elif player.traits[trait].name == 'Blunt Trauma':
-            # if ('Mace') or ('Flail') in player.weapon.types:
-                # Add Bleed
-
-        # elif player.traits[trait].name == 'Ruthless':
-            # Every 3rd primary attack deals double damage. (Add 33% shots per attack maybe)
-
-        elif player.traits[trait].name == 'Agility':
-            player.stats['attspd'] += player.stats['movespeedinc']
-            player.stats['movespeed'] *= 1 + player.stats['movespeedinc']
-
-
 # Calculate player's DPS
 def calculate_dps():
-    global maindps
     maindps = 0
-    global dotdps
     dotdps = 0
-    global totaldps
     totaldps = 0
+    dpslist = []
 
     # Main DPS calculation
     avgdmg = (player.weapon.mindmg + player.weapon.maxdmg) / 2  # Get average damage
@@ -797,6 +822,7 @@ def calculate_dps():
                     max(0, (reloadingtime - attackinterval) * math.ceil((math.pi * reloadingtime) % 1)))  # Calculate the Adjusted APS
 
     maindps = adjustedaps * (1 + player.stats['refire']) * player.weapon.shots * finaldmg  # Calculate the basic hit DPS
+    dpslist.append(maindps)
 
     # DOT DPS calculation
     if player.stats['burndmg'] > 0:
@@ -824,16 +850,17 @@ def calculate_dps():
         specialdottickrate = player.stats['dottickrate'] * (1 + player.stats['dotrateup'])
         dotdps += specialdotdmg * specialdottickrate
 
+    dpslist.append(dotdps)
+
     # Total DPS calculation
     totaldps = maindps + dotdps
+    dpslist.append(totaldps)
+
+    return dpslist
 
 
 # Display all the information
-def main_loop():
-    choice = 0
-    
-    calculate_stats()
-    calculate_dps()
+def display_stats(dpslist):
 
     trait1 = player.traits['Trait 1'].name
     trait2 = player.traits['Trait 2'].name
@@ -859,33 +886,36 @@ def main_loop():
     critc = format(player.stats['critchance'], '.0%')
     critd = format(player.stats['critmulti'], '.0%')
 
+
+    print(f'{"CURRENT GEAR":60s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
+
+    print(f'{"------------":60s}\t{"-----":70s}\t{"------":35s}\t---')
+
+    if player.weapon.modifier.name == 'Empty':
+        print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":50s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
+    else:
+        print(f'Weapon: {f"{player.weapon.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":50s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
+
+    print(f'Types: {weptypes:50s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {trait2}":35s}\t{format(dpslist[0], ".2f")}')
+
+    if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types and (('Bow' or 'Crossbow') in player.offhand.conditions or player.offhand.name == 'Empty')):
+        print(f'Offhand: {player.offhand.name:50s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')        
+    else:
+        print(f'Offhand: {f"{player.offhand.name} (Inactive - 2H Weapon Equipped.)":50s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')
+
+    print(f'Helmet: {player.helmet.name:50s}\t{f"DMG INC%: {playdmginc} | ADD DMG: {playadddmg} | BONUS DMG: {playbonusdmg}":70s}\t{f"------":35s}\t{format(dpslist[1], ".2f")}')
+    
+    print(f'Body: {player.body.name:50s}\t{f"ATT SPD%: {aspd} | REFIRE%: {refc}":70s}\t{f"Trait 4: {trait4}":35s}\t{f"---"}')
+    
+    print(f'Boots: {player.boots.name:50s}\t{f"CRIT%: {critc} | CRIT MULTI%: {critd}":70s}\t{f"Trait 5: {trait5}":35s}\tDPS (Total)')
+    
+    print(f'Accessory: {player.accessory.name:45s}\t{f"MOVE SPD (INC%): {playmspd} (+{mspd})":70s}\t{f"Trait 6: {trait6}":35s}\t{format(dpslist[2], ".2f")}\n')
+
+
+# Display the options menu
+def options_menu():
     while True:
         line_operations.cls()
-
-        print(f'{"CURRENT GEAR":50s}\t{"STATS":70s}\t{"TRAITS":35s}\tDPS')
-
-        print(f'{"------------":50s}\t{"-----":70s}\t{"------":35s}\t---')
-
-        if player.modifier.name == 'Empty':
-            print(f'Weapon: {f"{player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
-        else:
-            print(f'Weapon: {f"{player.modifier.name} {player.weapon.name} + {player.weapon.uplevel}":40s}\t{f"STR: {player.strength} | DEX: {player.dexterity} | INT: {player.intelligence}":70s}\t{f"Trait 1: {trait1}":35s}\tDPS (Main hits)')
-
-        print(f'Types: {weptypes:45s}\t{f"HP: {playhp} | SOUL: {playsh} | ARMOR: {playarm}":70s}\t{f"Trait 2: {trait2}":35s}\t{format(maindps, ".2f")}')
-
-        if 'Two-handed' not in player.weapon.types or (('Bow' or 'Crossbow') in player.weapon.types and (('Bow' or 'Crossbow') in player.offhand.conditions or player.offhand.name == 'Empty')):
-            print(f'Offhand: {player.offhand.name:40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')        
-        else:
-            print(f'Offhand: {f"{player.offhand.name} (Inactive - 2H Weapon Equipped.)":40s}\t{f"GOLD: {player.gold} | STAMINA: {playsta} | MANA: {playmp}":70s}\t{f"Trait 3: {trait3}":35s}\tDPS (DOT)')
-
-        print(f'Helmet: {player.helmet.name:40s}\t{f"DMG INC%: {playdmginc} | ADD DMG: {playadddmg} | BONUS DMG: {playbonusdmg}":70s}\t{f"------":35s}\t{format(dotdps, ".2f")}')
-        
-        print(f'Body: {player.body.name:45s}\t{f"ATT SPD%: {aspd} | REFIRE%: {refc}":70s}\t{f"Trait 4: {trait4}":35s}\t{f"---"}')
-        
-        print(f'Boots: {player.boots.name:45s}\t{f"CRIT%: {critc} | CRIT MULTI%: {critd}":70s}\t{f"Trait 5: {trait5}":35s}\tDPS (Total)')
-        
-        print(f'Accessory: {player.accessory.name:40s}\t{f"MOVE SPD (INC%): {playmspd} (+{mspd})":70s}\t{f"Trait 6: {trait6}":35s}\t{format(totaldps, ".2f")}\n')
-
         print('OPTIONS')
         print('1. Change Stats')
         print('2. Change Equipment')
@@ -912,6 +942,29 @@ def main_loop():
             case _:
                 input('Please input a correct option!')
 
+
+# Main program loop
+def main_loop():
+    weaponholder = allitems['empty']
+    line_operations.cls()
+    
+    calculate_stats()
+    dpslist = calculate_dps()
+    display_stats(dpslist)
+
+    if player.secondaryweapon.name != 'Empty':
+        weaponholder = player.weapon
+        player.weapon = player.secondaryweapon
+
+        calculate_stats()
+        dpslist = calculate_dps()
+        display_stats(dpslist)
+
+        player.weapon = weaponholder
+
+    input('Press any key for options.')
+    options_menu()
+    
 
 # Main program
 def Main():
