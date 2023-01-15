@@ -561,6 +561,10 @@ def calculate_stats():
         player.stats['poisondmg'] = 2.65
     if player.stats['frostdmg'] > 0.6:
         player.stats['frostdmg'] = 0.6
+    
+    # Remove refire chance if weapon is not ranged
+    if 'Ranged' not in player.weapon.types:
+        player.stats['refire'] = 0
 
 
 # Check for any extra weapon types
