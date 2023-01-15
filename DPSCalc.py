@@ -403,6 +403,8 @@ def calculate_stats():
     
     player.extratypes = []
     
+    extra_weapon_types()
+
     # Calculate item modifiers
     # ------------------------
     # Add Weapon Stats
@@ -519,7 +521,8 @@ def calculate_stats():
         player.stats['shock'] *= 1.5
 
 
-def initial_special_cases():
+# Check for any extra weapon types
+def extra_weapon_types():
     if player.klass == 'Pyromancer':
         player.extratypes.append('Fire')
     
@@ -528,6 +531,8 @@ def initial_special_cases():
     
     elif (player.offhand.name == 'Torch') and ('Melee' in player.weapon.types) and ('Two-handed' not in player.weapon.types):
         player.extratypes.append('Fire')
+    
+    # infusions
 
 
 # Calculate passives
