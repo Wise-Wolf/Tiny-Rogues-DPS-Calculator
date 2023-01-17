@@ -584,8 +584,12 @@ def extra_weapon_types():
 # Calculate stats that set things to static values
 def calculate_absolute_stats():
     for trait in player.traits:
+
         if player.traits[trait].name == 'No Pain No Gain':
                 player.stats['armor'] = 0
+        
+        elif player.traits[trait].name == 'Resolute Technique':
+            player.stats['critchance'] = 0
 
 
 # Calculate independent stats
@@ -686,6 +690,7 @@ def calculate_independent_stats():
     
     # Traits
     for trait in player.traits:
+
         if player.traits[trait].name == 'Blunt Trauma':
             if ('Mace') or ('Flail') in player.weapon.types:
                 player.stats['bleeddmg'] += 0.6
