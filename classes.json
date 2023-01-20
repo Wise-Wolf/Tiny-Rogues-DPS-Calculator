@@ -1,0 +1,160 @@
+{
+    "Classes": [
+        {
+            "name": "Deprived",
+            "strength": 1,
+            "dexterity": 1,
+            "intelligence": 1,
+            "weapon": "Club",
+            "helmet": "Empty",
+            "body": "Empty",
+            "boots": "Empty",
+            "offhand": "Plank Shield",
+            "accessory": "Empty"
+        },
+        {
+            "name": "The Hero",
+            "strength": 1,
+            "dexterity": 1,
+            "intelligence": 1,
+            "weapon": "Shortbow",
+            "helmet": "Empty",
+            "body": "Hero Cape",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Warrior",
+            "strength": 3,
+            "dexterity": 1,
+            "intelligence": 0,
+            "weapon": "Hand Axe",
+            "helmet": "Empty",
+            "body": "Battle Armor",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Obsidian Bracelet"
+        },
+        {
+            "name": "Ranger",
+            "strength": 1,
+            "dexterity": 3,
+            "intelligence": 0,
+            "weapon": "Shortbow",
+            "helmet": "Hunter Cap",
+            "body": "Ranger Cloak",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Sorcerer",
+            "strength": 0,
+            "dexterity": 0,
+            "intelligence": 4,
+            "weapon": "Magic Missile Wand",
+            "helmet": "Empty",
+            "body": "Sorcerer Cloak",
+            "boots": "Empty",
+            "offhand": "Crystal Orb",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Wanderer",
+            "strength": 1,
+            "dexterity": 2,
+            "intelligence": 1,
+            "weapon": "Wooden Boomerang",
+            "helmet": "Empty",
+            "body": "Cloth Hood",
+            "boots": "Empty",
+            "offhand": "Buckler",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Knight",
+            "strength": 2,
+            "dexterity": 1,
+            "intelligence": 1,
+            "weapon": "Shortsword",
+            "helmet": "Knight Helmet",
+            "body": "Empty",
+            "boots": "Empty",
+            "offhand": "Knight Shield",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Thief",
+            "strength": 0,
+            "dexterity": 3,
+            "intelligence": 1,
+            "weapon": "Dagger",
+            "helmet": "Thieves Hood",
+            "body": "Empty",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Diamond Ring"
+        },
+        {
+            "name": "Pyromancer",
+            "strength": 1,
+            "dexterity": 0,
+            "intelligence": 3,
+            "weapon": "Fireball Wand",
+            "helmet": "Empty",
+            "body": "Pyromancer Coat",
+            "boots": "Empty",
+            "offhand": "Pyromancy Flame",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Cleric",
+            "strength": 2,
+            "dexterity": 0,
+            "intelligence": 2,
+            "weapon": "King Bible",
+            "helmet": "Empty",
+            "body": "Cleric Robe",
+            "boots": "Empty",
+            "offhand": "Talisman",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Bandit",
+            "strength": 2,
+            "dexterity": 2,
+            "intelligence": 0,
+            "weapon": "Crossbow",
+            "helmet": "Empty",
+            "body": "Bandit Armor",
+            "boots": "Empty",
+            "offhand": "Buckler",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Gunslinger",
+            "strength": 0,
+            "dexterity": 2,
+            "intelligence": 2,
+            "weapon": "Revolver",
+            "helmet": "Cowboy Hat",
+            "body": "Poncho",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Empty"
+        },
+        {
+            "name": "Doppelganger",
+            "strength": 2,
+            "dexterity": 2,
+            "intelligence": 2,
+            "weapon": "Empty",
+            "helmet": "Empty",
+            "body": "Empty",
+            "boots": "Empty",
+            "offhand": "Empty",
+            "accessory": "Empty"
+        }
+    ]
+}

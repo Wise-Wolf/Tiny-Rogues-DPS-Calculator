@@ -1,0 +1,5027 @@
+{
+    "Weapons": [
+        {
+            "name": "Broadsword",
+            "uptier": 0.16,
+            "strsc": 0.03,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Broken Hero Sword",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Club",
+            "uptier": 0.16,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 250.0,
+            "maxdmg": 275.0,
+            "aps": 2.25,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Crop Scythe",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.75,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.2,
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Dagger",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5
+            }
+        },
+        {
+            "name": "Double Axe",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 2.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Hand Axe",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Poleaxe",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.75,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Polearm",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "arbreak": 0.25
+            }
+        },
+        {
+            "name": "Rapier",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Shortsword",
+            "uptier": 0.16,
+            "strsc": 0.03,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Sickles",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.2
+            }
+        },
+        {
+            "name": "Spear",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Spear",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Spiky Flail",
+            "uptier": 0.16,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Flail",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Tomahawk",
+            "uptier": 0.16,
+            "strsc": 0.03,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Wooden Sword",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Battleaxe",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Claymore",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 3.0,
+            "shots": 1.25,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Falchion",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 1.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Halberd",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Polearm",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "arbreak": 0.25
+            }
+        },
+        {
+            "name": "Ninja Dagger",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.75
+            }
+        },
+        {
+            "name": "Pirate Saber",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Poison Sickles",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.01,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Elemental",
+                "Poison",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.2,
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Reinforced Club",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Skinning Knife",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5,
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Spore Flail",
+            "uptier": 0.13,
+            "strsc": 0.03,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Flail",
+                "Elemental",
+                "Poison",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Amazon Spear",
+            "uptier": 0.1,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Spear",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Berserker Axes",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "attspd": 0.2
+            }
+        },
+        {
+            "name": "Big Chomper",
+            "uptier": 0.1,
+            "strsc": 0.05,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 475.0,
+            "maxdmg": 500.0,
+            "aps": 1.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Flail",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Buster Blade",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Ceremonial Knife",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.03,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Elemental",
+                "Poison",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5,
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Crescent Axe",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 200.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Demon Blade",
+            "uptier": 0.1,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Energysaber",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.03,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Giant Slayer",
+            "uptier": 0.1,
+            "strsc": 0.05,
+            "dexsc": 0.0,
+            "intsc": 0.01,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Golden Skean",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.01,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 1
+            }
+        },
+        {
+            "name": "Katana",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Lance",
+            "uptier": 0.1,
+            "strsc": 0.05,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Spear",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "arbreak": 0.25
+            }
+        },
+        {
+            "name": "Maelstrom",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Flail",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Morning Star",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 325.0,
+            "maxdmg": 350.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Swift Blade",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "The Hungry Blade",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5
+            }
+        },
+        {
+            "name": "The Knob Twiddler",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Flail",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {
+                "bonusdmg": 1000
+            }
+        },
+        {
+            "name": "Trident",
+            "uptier": 0.1,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Spear",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Butcher Cleaver",
+            "uptier": 0.07,
+            "strsc": 0.04,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 200.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "bleeddmg": 0.6,
+                "bleedup": 3
+            }
+        },
+        {
+            "name": "Echoing Fury",
+            "uptier": 0.07,
+            "strsc": 0.06,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Elemental",
+                "Fire",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Frostbane",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Hero Sword",
+            "uptier": 0.07,
+            "strsc": 0.04,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Lifehunt Scythe",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.2,
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Misfits Sword",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Moonshine Greatsword",
+            "uptier": 0.07,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.06,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Muramasa",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Naginata",
+            "uptier": 0.07,
+            "strsc": 0.06,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Polearm",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Reapers Toll",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5,
+                "critchance": 0.2,
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Salamandra",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.01,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Shadowsneak Dagger",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.01,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 0.5
+            }
+        },
+        {
+            "name": "Soulthief Dagger",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Dagger",
+                "Physical",
+                "Magical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critmulti": 1
+            }
+        },
+        {
+            "name": "Windhammer",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 1.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Physical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "movespeedinc": 0.15
+            }
+        },
+        {
+            "name": "Zweihander",
+            "uptier": 0.07,
+            "strsc": 0.06,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Death Sickles",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.06,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sickles",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.2
+            }
+        },
+        {
+            "name": "Excalibur",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.06,
+            "intsc": 0.06,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 4.0,
+            "shots": 6.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Gimmershred",
+            "uptier": 0.06,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Elemental",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24,
+                "burndmg": 0.6,
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Gungnir",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.06,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Spear",
+                "Elemental",
+                "Lightning",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Heatslayer",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.05,
+            "intsc": 0.06,
+            "mindmg": 250.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 4.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Elemental",
+                "Fire",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Lightbringer",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.06,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 6.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Holy",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Mjolnir",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Elemental",
+                "Lightning",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Quecholli",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 375.0,
+            "maxdmg": 400.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Mace",
+                "Physical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Shadowrazor",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 5.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Dark",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Snowcaller",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.05,
+            "intsc": 0.06,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 4.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Elemental",
+                "Cold",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Starfury",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Stormbinder",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.06,
+            "intsc": 0.05,
+            "mindmg": 200.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Elemental",
+                "Lightning",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Stormbreaker",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Axe",
+                "Elemental",
+                "Lightning",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Thornrender",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.05,
+            "intsc": 0.06,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 2.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Melee",
+                "Sword",
+                "Elemental",
+                "Poison",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Zenith",
+            "uptier": 0.06,
+            "strsc": 0.06,
+            "dexsc": 0.06,
+            "intsc": 0.06,
+            "mindmg": 200.0,
+            "maxdmg": 250.0,
+            "aps": 6.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Melee",
+                "Sword",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24,
+                "burndmg": 0.6,
+                "bleeddmg": 0.6,
+                "poisondmg": 2.65,
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Blowpipe",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 1.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.5,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Cannon",
+                "Elemental",
+                "Poison",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Chakrams",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.01,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Crossbow",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 3,
+            "relspd": 0.75,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Crude Bow",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.75,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Double Crossbows",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 12,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Flint Bow",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Fire",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Longbow",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Revolver",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 6,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Shortbow",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 2.75,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Shuriken",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Throwing Javelins",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Throwing Knives",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Wooden Boomerang",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Composite Bow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "refire": 0.5
+            }
+        },
+        {
+            "name": "Disk Launcher",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 9,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Doubleshot Bow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Enchanted Bow",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.02,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Magical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Flame Slugger",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.02,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 3,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Elemental",
+                "Fire",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Golden Desert Eagle",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.02,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 6,
+            "relspd": 0.5,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Helix Bow",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 2.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Jester Bow",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.02,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Kunai",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "arbreak": 0.25
+            }
+        },
+        {
+            "name": "Laser Gun",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.02,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 6,
+            "relspd": 1.5,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Machine Gun",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.01,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 10.0,
+            "shots": 1.0,
+            "capacity": 25,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Minibee",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 8.0,
+            "shots": 1.0,
+            "capacity": 25,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Octoshot Crossbow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.0,
+            "shots": 8.0,
+            "capacity": 3,
+            "relspd": 1.5,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Poison Throwing Knives",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Poison",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Pus Spitter",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 100.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 3,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Shotgun",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 8.0,
+            "capacity": 2,
+            "relspd": 1.5,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "SMGs",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 8.0,
+            "shots": 4.0,
+            "capacity": 10,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Sniper Bow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "incdmg": 3.5
+            }
+        },
+        {
+            "name": "Thorn Bow",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Poison",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Thorn Chakrams",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.01,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Poison",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Twin Chakrams",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.25,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Twinshot Crossbow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 3,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Winged Bow",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 1.25,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Bazooka",
+            "uptier": 0.1,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 750.0,
+            "maxdmg": 800.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Cannon",
+                "Physical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Buriza",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 3.0,
+            "capacity": 5,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Elemental",
+                "Cold",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Cupid Bow",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.03,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Cluckeye Bow",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 25.0,
+            "maxdmg": 50.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Deck of Cards",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Fire Fang",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Fire",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Flamarang",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.04,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Fire",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Full Auto Crossbow",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.02,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 8.0,
+            "shots": 1.0,
+            "capacity": 30,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Gatling Gun",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.03,
+            "intsc": 0.02,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 10.0,
+            "shots": 1.0,
+            "capacity": 100,
+            "relspd": 4.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Grenade Launcher",
+            "uptier": 0.1,
+            "strsc": 0.03,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 300.0,
+            "maxdmg": 325.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 9,
+            "relspd": 1.5,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Cannon",
+                "Physical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Hellsingers",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.01,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 3.0,
+            "capacity": 12,
+            "relspd": 1.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Magical Boomerang",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.03,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Manticore",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.0,
+            "shots": 21.0,
+            "capacity": 1,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Mechanical Crossbow",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.03,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 6.0,
+            "capacity": 1,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Molotov Cocktail",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.01,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6,
+                "burnup": 0.75
+            }
+        },
+        {
+            "name": "Outstanding Money Gun",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.0,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 4.0,
+            "shots": 2.0,
+            "capacity": 24,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Piranha Gun",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.03,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 3,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Unconditional"
+            ],
+            "stats": {
+                "specialdmg": 2
+            }
+        },
+        {
+            "name": "Poisonous Concoction",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.05,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65,
+                "poisonup": 1
+            }
+        },
+        {
+            "name": "Rapidfire Bow",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 6.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Relic Crossbow",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 1.5,
+            "capacity": 6,
+            "relspd": 1.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Sawblade Boomerang",
+            "uptier": 0.1,
+            "strsc": 0.04,
+            "dexsc": 0.03,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {
+                "bleeddmg": 0.6
+            }
+        },
+        {
+            "name": "Sniper Rifle",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 750.0,
+            "maxdmg": 800.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 1.25,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "critchance": 0.1
+            }
+        },
+        {
+            "name": "Snow Angel",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.04,
+            "intsc": 0.01,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Cold",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Snow Launcher",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.04,
+            "intsc": 0.01,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 15.0,
+            "capacity": 1,
+            "relspd": 1.25,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Storm Cloud",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.02,
+            "mindmg": 100.0,
+            "maxdmg": 250.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Lightning",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Vortex Glaive",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.02,
+            "mindmg": 125.0,
+            "maxdmg": 180.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Zephyr",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "movespeedinc": 0.2
+            }
+        },
+        {
+            "name": "Blastbark",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.01,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Chlorophyte Bow",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Compound Bow",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 1.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Demon Repeater",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.02,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 9.0,
+            "capacity": 2,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Crossbow",
+                "Elemental",
+                "Fire",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Dragonslayer Bow",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 750.0,
+            "maxdmg": 850.0,
+            "aps": 1.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Ice Fang",
+            "uptier": 0.07,
+            "strsc": 0.04,
+            "dexsc": 0.05,
+            "intsc": 0.04,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Elemental",
+                "Cold",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Laser Rifle",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 10.0,
+            "shots": 1.0,
+            "capacity": 45,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Paperbomb Kunai",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "bonusdmg": 387
+            }
+        },
+        {
+            "name": "Railgun",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.03,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 6.0,
+            "capacity": 1,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Rocket Launcher",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 800.0,
+            "maxdmg": 900.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 3,
+            "relspd": 2.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Cannon",
+                "Physical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Sling Pistols",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 15,
+            "relspd": 0.75,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Crossbow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "The Death Beam",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 750.0,
+            "maxdmg": 850.0,
+            "aps": 3.0,
+            "shots": 1.5,
+            "capacity": 1,
+            "relspd": 2.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Triple Machine Gun",
+            "uptier": 0.07,
+            "strsc": 0.01,
+            "dexsc": 0.05,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 8.0,
+            "shots": 3.0,
+            "capacity": 25,
+            "relspd": 1.5,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Doomerang",
+            "uptier": 0.06,
+            "strsc": 0.01,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.25,
+            "shots": 1.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Lightning Javelin",
+            "uptier": 0.06,
+            "strsc": 0.03,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Elemental",
+                "Lightning",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Maxibee",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 10.0,
+            "shots": 1.0,
+            "capacity": 100,
+            "relspd": 0.5,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Gun",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Phantasm",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.0,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Bow",
+                "Physical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Tri-Chakrams",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.06,
+            "intsc": 0.06,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Ranged",
+                "Throwing",
+                "Physical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "V.B.F.G",
+            "uptier": 0.06,
+            "strsc": 0.05,
+            "dexsc": 0.05,
+            "intsc": 0.05,
+            "mindmg": 750.0,
+            "maxdmg": 800.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 1.5,
+            "types": [
+                "Two-handed",
+                "Ranged",
+                "Cannon",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Apprentice Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Arctic Wand",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Crimson Staff",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 4.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Fireball Wand",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.25,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Firebomb Codex",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Spellbook",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Icicle Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "King Bible",
+            "uptier": 0.16,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Bible",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Leaf Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.02,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Magic Missile Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Mana Scepter",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Prism Staff",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Scorching Staff",
+            "uptier": 0.16,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Slime Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Spark Wand",
+            "uptier": 0.16,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Arc Staff",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Bubble Wand",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Firestorm Scroll",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 2.5,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Freezing Scepter",
+            "uptier": 0.13,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 100.0,
+            "maxdmg": 125.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Holy Bolt Wand",
+            "uptier": 0.13,
+            "strsc": 0.01,
+            "dexsc": 0.02,
+            "intsc": 0.02,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Holy",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Razor Wand",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Physical",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Spectral Blade Wand",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Tornado Wand",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.03,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Toxic Scepter",
+            "uptier": 0.13,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.03,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Arcane Torrent Tome",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.05,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Spellbook",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Beetle Wand",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Blizzard Scroll",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 4.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Bone Wand",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Physical",
+                "Magical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Comet Scroll",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Dark Wand",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 3.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Dark",
+                "Unconditional"
+            ],
+            "stats": {
+                "specialdmg": 1
+            }
+        },
+        {
+            "name": "Disintegration Scepter",
+            "uptier": 0.1,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 120.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {
+                "specialdmg": 5.25
+            }
+        },
+        {
+            "name": "Harp",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.03,
+            "intsc": 0.03,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Holy Staff",
+            "uptier": 0.1,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Holy",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Kugelblitz Wand",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 100.0,
+            "maxdmg": 250.0,
+            "aps": 1.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Life Drain Scepter",
+            "uptier": 0.1,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.03,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Lightning Staff",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.04,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Ruby Wand",
+            "uptier": 0.1,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 4.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Strike",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Shock Wand",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Slither Wand",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.04,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Physical",
+                "Magical",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "bleeddmg": 0.6,
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Thunderstorm Scroll",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Toad Plague Scroll",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 2.5,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65
+            }
+        },
+        {
+            "name": "Vilethorn",
+            "uptier": 0.1,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 50.0,
+            "maxdmg": 75.0,
+            "aps": 3.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Physical",
+                "Magical",
+                "Elemental",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Archon Scepter",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scepter",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Blasting Wand",
+            "uptier": 0.07,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Candy Scroll",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.5,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Dark Wizard Staff",
+            "uptier": 0.07,
+            "strsc": 0.05,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 2.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Dark",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Demon Scythe Wand",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.04,
+            "intsc": 0.06,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 5.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Dark",
+                "Slash",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Dragon's Breath",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 8.0,
+            "shots": 2.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Ex Mortis",
+            "uptier": 0.07,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 150.0,
+            "maxdmg": 175.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Spellbook",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Explosion Scroll",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 200.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Frozen Orb Wand",
+            "uptier": 0.07,
+            "strsc": 0.01,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 1.0,
+            "shots": 5.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Cold",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Holy Bible",
+            "uptier": 0.07,
+            "strsc": 0.04,
+            "dexsc": 0.0,
+            "intsc": 0.04,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 3.5,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Bible",
+                "Magical",
+                "Holy",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Rift Wand",
+            "uptier": 0.07,
+            "strsc": 0.02,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 2.5,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Dark",
+                "Thrust",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Spider Summon Tome",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.01,
+            "intsc": 0.05,
+            "mindmg": 225.0,
+            "maxdmg": 250.0,
+            "aps": 2.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Spellbook",
+                "Physical",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Unholy Bible",
+            "uptier": 0.07,
+            "strsc": 0.04,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 1.5,
+            "shots": 6.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Bible",
+                "Magical",
+                "Dark",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Volcanic Codex",
+            "uptier": 0.07,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 150.0,
+            "maxdmg": 200.0,
+            "aps": 6.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Spellbook",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Blight Wand",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.06,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 4.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "poisondmg": 2.65,
+                "specialdmg": 5.25
+            }
+        },
+        {
+            "name": "Flame Wand",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 375.0,
+            "maxdmg": 400.0,
+            "aps": 3.0,
+            "shots": 12.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Meteor Scroll",
+            "uptier": 0.06,
+            "strsc": 0.03,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 2.5,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Unconditional"
+            ],
+            "stats": {
+                "burndmg": 0.6
+            }
+        },
+        {
+            "name": "Nimbus Scroll",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.02,
+            "intsc": 0.06,
+            "mindmg": 100.0,
+            "maxdmg": 400.0,
+            "aps": 7.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Scroll",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        },
+        {
+            "name": "Obliteration Wand",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 125.0,
+            "maxdmg": 150.0,
+            "aps": 4.0,
+            "shots": 3.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Dark",
+                "Unconditional"
+            ],
+            "stats": {}
+        },
+        {
+            "name": "Rainbow Staff",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.05,
+            "mindmg": 275.0,
+            "maxdmg": 300.0,
+            "aps": 3.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Elemental",
+                "Fire",
+                "Cold",
+                "Lightning",
+                "Poison",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24,
+                "burndmg": 0.6,
+                "poisondmg": 2.65,
+                "frostdmg": 0.6
+            }
+        },
+        {
+            "name": "Spirit Wand",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.02,
+            "mindmg": 75.0,
+            "maxdmg": 100.0,
+            "aps": 2.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "One-handed",
+                "Magic",
+                "Wand",
+                "Magical",
+                "Unconditional"
+            ],
+            "stats": {
+                "specialdmg": 8
+            }
+        },
+        {
+            "name": "Staff of Unlimited Power",
+            "uptier": 0.06,
+            "strsc": 0.0,
+            "dexsc": 0.0,
+            "intsc": 0.06,
+            "mindmg": 175.0,
+            "maxdmg": 200.0,
+            "aps": 8.0,
+            "shots": 1.0,
+            "capacity": 1,
+            "relspd": 0.0,
+            "types": [
+                "Two-handed",
+                "Magic",
+                "Staff",
+                "Magical",
+                "Elemental",
+                "Lightning",
+                "Unconditional"
+            ],
+            "stats": {
+                "shock": 0.24
+            }
+        }
+    ]
+}

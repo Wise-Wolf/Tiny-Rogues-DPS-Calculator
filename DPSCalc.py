@@ -46,7 +46,7 @@ def initial_setup():
     print('Loading data...')
 
     global allitems
-    allitems = load_data.parse_data()
+    allitems = load_data.load_data()
     
         # Let the user choose their starting class
     while True:
