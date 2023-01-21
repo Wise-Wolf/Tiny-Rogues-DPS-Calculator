@@ -55,11 +55,11 @@ class Item:
         self.stats = stats
 
 
-def load_weapons():
+def load_items():
     
     klass = globals()['Weapon']
 
-    f = open('weapons.json')
+    f = open('data.json')
     data = json.load(f)
 
     for weapon in data['Weapons']:
@@ -69,12 +69,9 @@ def load_weapons():
         
         allitems[instance.name.lower()] = instance
 
-
-def load_items():
-    
     klass = globals()['Item']
 
-    f = open('items.json')
+    f = open('data.json')
     data = json.load(f)
 
     for item in data['Items']:
@@ -82,12 +79,9 @@ def load_items():
             
         allitems[instance.name.lower()] = instance
 
-
-def load_classes():
-    
     klass = globals()['Klass']
 
-    f = open('classes.json')
+    f = open('data.json')
     data = json.load(f)
 
     for klasss in data['Classes']:
@@ -103,9 +97,7 @@ def load_data():
     allitems = {}
     itemempty = Item('Any', 'Empty')
     allitems[itemempty.name.lower()] = itemempty
-    load_weapons()
     load_items()
-    load_classes()
 
     return allitems
 

@@ -188,22 +188,19 @@ def parse_data():
     itemlist = []
     global classeslist
     classeslist = []
+    itemsdict = {}
 
     parse_weapons()
-    weapondict = {'Weapons': weaponlist}
+    itemsdict['Weapons'] = weaponlist
     parse_items()
     parse_traits()
     parse_modifiers()
-    itemdict = {'Items': itemlist}
+    itemsdict['Items'] = itemlist
     parse_classes()
-    classesdict = {'Classes': classeslist}
+    itemsdict['Classes'] = classeslist
 
-    with open('weapons.json', 'w') as outfile:
-        outfile.write(json.dumps(weapondict, indent=4))
-    with open('items.json', 'w') as outfile:
-        outfile.write(json.dumps(itemdict, indent=4))
-    with open('classes.json', 'w') as outfile:
-        outfile.write(json.dumps(classesdict, indent=4))
+    with open('data.json', 'w') as outfile:
+        outfile.write(json.dumps(itemsdict, indent=4))
 
 
 if __name__ == '__main__':
